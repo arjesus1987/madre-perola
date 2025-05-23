@@ -42,7 +42,8 @@
 
 
   <div class="container mt-5">
-    <img src="img/banner-experiencias2.png" class="img-fluid rounded" alt="...">
+    <img src="{{ Vite::asset('resources/asset/images/logo-horizontal.svg') }}" class="img-fluid rounded" alt="...">
+    <img src="{{ asset('public/images/logo-horizontal.svg') }}">
   </div>
   <div class="container mt-5">
     <h1 class="titulo">Depoimentos</h1>
@@ -60,7 +61,7 @@
         <div class="row row-carrossel">
           <div class="col-4 col1 d-flex justify-content-center align-items-center">
             <!-- <img src="img/Frame400.png" class="d-block w-100" alt="..."> -->
-            <img src= "{{Vite::asset('storage/app/public/img-experiencias/imag_experiencia3.png') }}" class="rounded-circle p-3" alt="...">
+            <img src="{{ Vite::asset('resources/asset/images/logo-horizontal.svg') }}" class="rounded-circle p-3" alt="...">
           </div>
           <div class="col-8 p-3 d-flex justify-content-center align-items-center depoimento">
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam praesentium consequuntur reprehenderit, nulla labore deserunt quod sed. Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam praesentium consequuntur reprehenderit, nulla labore deserunt quod sed. Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam praesentium consequuntur reprehenderit, nulla labore deserunt quod sed. Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam praesentium consequuntur reprehenderit, nulla labore deserunt quod sed. Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam praesentium consequuntur reprehenderit, nulla labore deserunt quod sed. Deleniti quae ut laudantium, quas atque nobis ab, minima, pariatur magni consectetur quidem?</p>
