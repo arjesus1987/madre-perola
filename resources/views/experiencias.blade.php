@@ -12,7 +12,8 @@
     @import url('https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100..900;1,100..900&display=swap');
   </style>
 
-  <link rel="stylesheet" href="../css/experiencias.css">
+@vite(['resources/css/experiencias.css', 'resources/js/app.js'])
+  {{-- <link rel="stylesheet" href="../css/experiencias.css"> --}}
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
 
@@ -20,7 +21,7 @@
 
 <body>
 
-
+<div class="d-flex flex-column min-vh-100">
 
   <nav class="p-3 text-bg-dark sticky-top">
     <div class="container">
@@ -42,8 +43,7 @@
 
 
   <div class="container mt-5">
-    <img src="{{ Vite::asset('resources/asset/images/logo-horizontal.svg') }}" class="img-fluid rounded" alt="...">
-    <img src="{{ asset('public/images/logo-horizontal.svg') }}">
+    <img src="{{ Vite::asset('resources/asset/images/banner-experiencias.png') }}" class="img-fluid rounded" alt="...">
   </div>
   <div class="container mt-5">
     <h1 class="titulo">Depoimentos</h1>
@@ -61,7 +61,7 @@
         <div class="row row-carrossel">
           <div class="col-4 col1 d-flex justify-content-center align-items-center">
             <!-- <img src="img/Frame400.png" class="d-block w-100" alt="..."> -->
-            <img src="{{ Vite::asset('resources/asset/images/logo-horizontal.svg') }}" class="rounded-circle p-3" alt="...">
+            <img src="{{ Vite::asset('resources/asset/images/imag_experiencia.png') }}" class="rounded-circle p-3" alt="...">
           </div>
           <div class="col-8 p-3 d-flex justify-content-center align-items-center depoimento">
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam praesentium consequuntur reprehenderit, nulla labore deserunt quod sed. Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam praesentium consequuntur reprehenderit, nulla labore deserunt quod sed. Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam praesentium consequuntur reprehenderit, nulla labore deserunt quod sed. Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam praesentium consequuntur reprehenderit, nulla labore deserunt quod sed. Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam praesentium consequuntur reprehenderit, nulla labore deserunt quod sed. Deleniti quae ut laudantium, quas atque nobis ab, minima, pariatur magni consectetur quidem?</p>
@@ -71,8 +71,7 @@
       <div class="carousel-item">
         <div class="row row-carrossel">
           <div class="col-4 col1 d-flex justify-content-center align-items-center">
-            <img src="../../storage/app/public/img-experiencias/imag_experiencia 2.png" class="rounded-circle p-3" alt="..."> 
-            <!-- img/imag_experiencia 2.png -->
+            <img src="{{ Vite::asset('resources/asset/images/imag_experiencia2.png') }}" class="rounded-circle p-3" alt="..."> 
           </div>
           <div class="col-8 p-3 d-flex justify-content-center align-items-center depoimento">Lorem ipsum dolor sit amet consectetur adipisicingtetur quidem?</div>
         </div>
@@ -80,7 +79,7 @@
       <div class="carousel-item">
         <div class="row row-carrossel">
           <div class="col-4 col1 d-flex justify-content-center align-items-center">
-            <img src="img/imag_experiencia.png" class="rounded-circle p-3" alt="...">
+            <img src="{{ Vite::asset('resources/asset/images/imag_experiencia3.png') }}" class="rounded-circle p-3" alt="...">
           </div>
           <div class="col-8 p-3 d-flex justify-content-center align-items-center depoimento">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam praesentium consequuntur reprehenderit, nulla labore deserunt quod sed. Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam praesentium consequuntur reprehenderit, nulla labore deserunt quod sed. Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquamiti quae ut laudantium, quas atque nobis ab, minima, pariatur magni consectetur quidem?</div>
         </div>
@@ -148,7 +147,7 @@
       </div>
     </div>
   </footer>
-
+</div>
 
   <script src="script.js"></script>
 
