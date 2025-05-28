@@ -11,3 +11,7 @@ Route::get('/experiencias', function () {
     return view('experiencias');
 });
 
+Route::get('/catalogo', function () {
+    return view('catalogo');
+});
+
