@@ -6,7 +6,10 @@
   <title>Barra Lateral à Esquerda · Bootstrap 5.3</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
-@vite(['resources/css/admHome.css'])
+  {{-- FullCalendar JS --}}
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js"></script>
+  {{-- CSS do projeto --}}
+  @vite(['resources/css/admHome.css'])
 
 </head>
 <body>
@@ -43,6 +46,7 @@
           <div class="collapse" id="submenuCadastro">
             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
               <li><a href="/cadastrousuario" class="nav-link text-white ps-4">Usuário</a></li>
+              <li><a href="/visualizarUsuarios" class="nav-link text-white ps-4">Visualizar Usuários</a></li>
               <li><a href="/cadastroespecialidade" class="nav-link text-white ps-4">Especialidade</a></li>
             </ul>
           </div>
@@ -59,7 +63,7 @@
           <div class="collapse" id="submenuAgendamento">
             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
               <li><a href="/agendaCadastro" class="nav-link text-white ps-4">Cadastrar</a></li>
-              <li><a href="visualizar_agenda.html" class="nav-link text-white ps-4">Visualizar</a></li>
+              <li><a href="/agendaVisualizar" class="nav-link text-white ps-4">Visualizar</a></li>
             </ul>
           </div>
         </li>
@@ -80,15 +84,6 @@
           </div>
         </li>
 
-        <!-- RELATÓRIO -->
-        <li>
-          <a href="#" class="nav-link text-white">
-            <svg class="bi pe-none me-2" width="16" height="16">
-              <use xlink:href="#bi bi-download" />
-            </svg>
-            RELATÓRIO
-          </a>
-        </li>
       </ul>
 
       <hr>
@@ -98,15 +93,16 @@
           <strong>mdo</strong>
         </a>
         <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
-          <li><a class="dropdown-item" href="#">Perfil</a></li>
+          <li><a class="dropdown-item" href="/visualizarPerfilUsuario">Perfil</a></li>
           <li><hr class="dropdown-divider"></li>
-          <li><a class="dropdown-item" href="tela_login.html">Sair</a></li>
+          <li><a class="dropdown-item" href="/login">Sair</a></li>
         </ul>
       </div>
     </div>
       <main>
     <br><br><br><br>
     {{$slot}}
+     <br><br><br><br>   
     </main>
     </div>
   </div>

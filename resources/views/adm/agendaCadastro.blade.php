@@ -1,5 +1,5 @@
 <x-layoutadm>
-    <div class="main-content" id="cadastrarAgendamento">
+ <div class="main-content" id="cadastrarAgendamento">
   <h1>Cadastro de Agenda de Atendimento</h1>
   <div class="row">
     <!-- Coluna do calendário -->
@@ -101,6 +101,6 @@
   });
 </script>
 
-  </div>
+</div>
 
 </x-layoutadm>
