@@ -104,11 +104,9 @@
         </ul>
       </div>
     </div>
-      <main>
-    <br><br><br><br>
+      <main class="teste">
     {{$slot}}
     </main>
-    </div>
   </div>
 
   <!-- ÍCONES SVG -->
