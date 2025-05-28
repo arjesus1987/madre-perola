@@ -104,7 +104,7 @@
         </ul>
       </div>
     </div>
-      <main class="teste">
+      <main class="main-content">
     {{$slot}}
     </main>
   </div>
