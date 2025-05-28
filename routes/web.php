@@ -14,3 +14,12 @@ Route::get('/cadastroespecialidade',[CadastroEspecialidadeHomeController::class,
 Route::get('/agendaCadastro',[CadastroAgendaHomeController::class, "index"]);
 
 
+
+Route::get('/experiencias', function () {
+    return view('experiencias');
+});
+
+Route::get('/catalogo', function () {
+    return view('catalogo');
+});
+
