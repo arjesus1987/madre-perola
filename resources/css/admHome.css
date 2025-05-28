@@ -1,0 +1,23 @@
+  /* public/css/admHome.css*/
+body {
+      margin: 0;
+    }
+    .layout {
+      display: flex;
+      min-height: 100vh;
+    }
+    .sidebar {
+      width: 280px;
+    }
+    .main-content {
+      flex: 1;
+      padding: 2rem;
+    }
+    footer a {
+      color: #ccc;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+    footer a:hover {
+      color: #fff;
+    }
