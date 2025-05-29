@@ -99,12 +99,10 @@
         </ul>
       </div>
     </div>
-      <main>
-    <br><br><br><br>
+      <main class="main-content">
     {{$slot}}
      <br><br><br><br>   
     </main>
-    </div>
   </div>
 
   <!-- ÍCONES SVG -->

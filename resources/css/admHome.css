@@ -12,6 +12,7 @@ body {
     .main-content {
       flex: 1;
       padding: 2rem;
+      width: 100%;
     }
     footer a {
       color: #ccc;
