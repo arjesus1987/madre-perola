@@ -10,7 +10,7 @@
   <div class="login-form">
      <!-- LOGO ACIMA DO MENU -->
       <div class="text-center mb-3">
-        <img src="logo-horizontal.svg" alt="Logo" class="img-fluid">
+        <img src="{{ Vite::asset('resources/asset/images/logo-horizontal.svg') }}">
       </div>
     <h2>Login do Sistema</h2>
     <form>
