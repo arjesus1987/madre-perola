@@ -9,6 +9,7 @@ use App\Http\Controllers\CadastroAgendaHomeController;
 use App\Http\Controllers\AgendaVisualizarHomeController;
 use App\Http\Controllers\PerfilVisualizarHomeController;
 use App\Http\Controllers\VisualizarUsuariosHomeController;
+use App\Http\Controllers\VisualizarEspecialidadesHomeController;
 
 Route::get('/login',[LoginController::class, "index"]);
 Route::get('/home',[HomeController::class, "index"]);
@@ -17,7 +18,10 @@ Route::get('/cadastroespecialidade',[CadastroEspecialidadeHomeController::class,
 Route::get('/agendaCadastro',[CadastroAgendaHomeController::class, "index"]);
 Route::get('/agendaVisualizar', [AgendaVisualizarHomeController::class, 'index']);
 Route::get('/visualizarPerfilUsuario', [PerfilVisualizarHomeController::class, 'index']);
-Route::get('/visualizarUsuarios', [VisualizarUsuariosHomeController::class, 'index']);
+Route::get('/visualizarUsuario', [VisualizarUsuariosHomeController::class, 'index']);
+Route::get('/visualizarEspecialidades', [VisualizarEspecialidadesHomeController::class, 'index']);
+
+
 
 Route::get('/experiencias', function () {
     return view('experiencias');
