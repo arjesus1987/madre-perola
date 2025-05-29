@@ -22,6 +22,17 @@
         </div>
     </header>
 
+
+        {{ $slot }}
+
+
+
+
+
+
+
+
+
     <footer>
 
    <div class="footer-content">
