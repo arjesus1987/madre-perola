@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Login - Sistema da Clínica</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-  @vite(['resources/css/login.css'])
-<body>
+<x-hf>
   <div class="login-form">
      <!-- LOGO ACIMA DO MENU -->
       <div class="text-center mb-3">
@@ -29,7 +21,6 @@
       <button type="submit" class="btn btn-primary w-100">Entrar</button>
     </form>
   </div>
+  </x-hf>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
-</body>
-</html>
+  

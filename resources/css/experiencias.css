@@ -1,0 +1,174 @@
+* {
+  padding: 0px;
+  margin: 0px;
+}
+
+.linha {
+  height: 2px;
+  background-color: #a18c6c;
+}
+
+.titulo {
+  color: #cba574;
+  font-size: 48px;
+}
+
+/* Inicio CSS Carousel */
+
+.row-carrossel {
+  height: 260px;
+  position: relative;
+}
+
+.cor-carousel {
+  background: #faf7f4;
+  border: 2px solid#A18C6C;
+  border-color: #a18c6c;
+}
+
+.col1 {
+  & img {
+    /* position: absolute; */
+    width: 100%x;
+    height: 220px;
+  }
+}
+
+.depoimento{
+  padding-top: 20px;
+    width: 100%x;
+    height: 200px auto;
+}
+
+
+/* Indicadores carroussel */
+
+.carousel-indicators [data-bs-target] {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid #a18c6c;
+  background-color: transparent;
+}
+
+.carousel-indicators .active {
+  background-color: #a18c6c;
+  border-color: #a18c6c;
+}
+
+/* Fim CSS Carousel */
+
+/* Inicio CSS Acordion */
+
+/* Borda dos itens */
+.accordion-item {
+  border: 2px solid #a18c6c; /*  altere para a cor que quiser */
+  /* border-radius: 8px; Opcional: bordas arredondadas */
+  /* margin-bottom: 10px; */
+}
+
+/* Fundo do botão quando aberto */
+.accordion-button {
+  background-color: #faf7f4; /* Cor de fundo quando aberto */
+  color: #a18c6c; /* Cor do texto */
+  /* border-bottom: 1px solid #FAF7F4; */
+}
+
+/* Fundo do botão quando fechado */
+.accordion-button.collapsed {
+  background-color: #faf7f4;
+  color: #a18c6c;
+  border-bottom: none;
+}
+
+/* Corpo do accordion */
+.accordion-body {
+  background-color: #ffffff;
+  color: #585656;
+}
+
+/* Indicador (ícone setinha) */
+.accordion-button::after {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23A18C6C' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+}
+
+/* Indicador quando fechado */
+.accordion-button.collapsed::after {
+  transform: rotate(0deg); /* seta para baixo */
+}
+
+/* Indicador quando aberto */
+.accordion-button:not(.collapsed)::after {
+  transform: rotate(180deg); /* seta para cima */
+}
+
+/* Ícone setinha quando ABERTO */
+.accordion-button:not(.collapsed)::after {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23faf7f4' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+  transform: rotate(180deg); /* seta pra cima */
+}
+
+.accordion-button:not(.collapsed) {
+  color: #faf7f4;
+  background-color: #cba574;
+}
+
+.accordion-button:focus {
+  box-shadow: 0 0 0 0.25rem rgba(161, 140, 108, 0.5); /* Azul padrão Bootstrap */
+}
+
+
+
+@media (max-width: 992px) {
+  .depoimento{
+    padding-top: 10px;
+      width: 100%x;
+      height: 140px auto;
+      
+      & p{
+        font-size: 12px;
+      } 
+  }
+  .col1 {
+    & img {
+      /* position: absolute; */
+      width: 100%x;
+      height: 160px;
+    }
+  }
+
+}
+
+@media (max-width: 768px) {
+  .depoimento{
+    padding-top: 10px;
+      width: 100%x;
+      height: 140px auto;
+      
+      & p{
+        font-size: 12px;
+      } 
+  }
+  .col1 {
+    & img {
+      /* position: absolute; */
+      width: 100%x;
+      height: 160px;
+    }
+  }
+
+}
+
+
+/* 
+@media (max-width: 768px) {
+  #projetos-display {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-self: center;
+  }
+  .card {
+    width: 14rem;
+  }
+} */
