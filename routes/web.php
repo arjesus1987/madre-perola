@@ -11,7 +11,9 @@ use App\Http\Controllers\PerfilVisualizarHomeController;
 use App\Http\Controllers\VisualizarUsuariosHomeController;
 use App\Http\Controllers\VisualizarEspecialidadesHomeController;
 use App\Http\Controllers\EspecialidadeController;
+use App\Http\Controllers\HomeSiteController;
 
+Route::get('/',[HomeSiteController::class, "index"]);
 Route::get('/login',[LoginController::class, "index"]);
 Route::get('/home',[HomeController::class, "index"]);
 Route::get('/cadastrousuario',[CadastroHomeController::class, "index"]);
