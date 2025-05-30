@@ -11,6 +11,7 @@ use App\Http\Controllers\AgendaVisualizarHomeController;
 use App\Http\Controllers\PerfilVisualizarHomeController;
 use App\Http\Controllers\VisualizarUsuariosHomeController;
 use App\Http\Controllers\VisualizarEspecialidadesHomeController;
+use App\Http\Controllers\EspecialidadeController;
 
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 
@@ -27,6 +28,7 @@ Route::get('/visualizarUsuario', [VisualizarUsuariosHomeController::class, 'inde
 Route::get('/visualizarEspecialidades', [VisualizarEspecialidadesHomeController::class, 'index']);
 
 
+Route::get('/especialidades', [EspecialidadeController::class, 'index']);
 
 Route::get('/experiencias', function () {
     return view('experiencias');
@@ -35,6 +37,27 @@ Route::get('/experiencias', function () {
 Route::get('/catalogo', function () {
     return view('catalogo');
 });
+
+Route::get('/nutrologia', function () {
+    return view('especialidades.nutrologia');
+});
+
+Route::get('/cirurgia-plastica', function () {
+    return view('especialidades.cirurgia-plastica');
+});
+
+Route::get('/dermatologia', function () {
+    return view('especialidades.dermatologia');
+});
+
+Route::get('/tricologia', function () {
+    return view('especialidades.tricologia');
+});
+
+Route::get('/cosmiatria', function () {
+    return view('especialidades.cosmiatria');
+});
+
 
 
 Route::get('/produtos', [ProdutoController::class, 'index'])->name('produtos.index');
