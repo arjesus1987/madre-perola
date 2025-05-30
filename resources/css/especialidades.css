@@ -1,0 +1,369 @@
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+}
+ body {
+    overflow: scroll;
+ }
+/* começo do header :D */
+
+header {
+    display: flex ;
+    align-items: center;
+    justify-content: space-around;
+    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+    padding: 10px;
+}
+
+.nav-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.nav-bar li {
+    list-style: none;
+}
+
+.nav-bar li a {
+    text-decoration: none;
+    color: black;
+    transition: 0.2s linear;
+}
+
+.nav-bar li a:hover {
+    color: var(--cor-acento);
+}
+
+/* fim do header :D */
+
+.op-tricologia {
+    margin-bottom: 100px;
+
+    & h1, h2 {
+        margin-bottom: 10px;
+    }
+    background-color: #EDE8DF;
+    padding: 30px;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+    border-radius: 5px;
+}
+
+.op-txt {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20%;
+    gap: 8px;       
+}
+
+#p-op-02 {
+    font-size: 13px;
+    margin-bottom: 15px;
+}
+
+.btn {
+    padding: 10px;
+    width: 100px;
+    border-radius: 10px;
+    background-color: #f5ccb6;
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    transition: 0.2s linear;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #edbea5;
+    color: rgb(255, 255, 255);
+}
+
+.marketing {
+    width: 100%;
+    margin-bottom: 200px;
+    margin-top: 200px;
+}
+
+.txt-mark {
+    text-align: center;
+}
+
+.txt-p-h {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    & h1 {
+        margin-bottom: 20px;
+    }
+}
+
+
+.tricologia-explicacao {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 120px;
+    background-color: #EDE8DF;
+    padding: 50px;
+    box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
+    border-radius: 5px;
+    & h1 {
+        margin-top: 20px;
+    }
+
+    & p {
+        text-align: justify;
+    }
+}
+
+.ex-01 {
+    display: flex;
+    width: 800px;
+    gap: 40px;
+    margin-top: 30px;
+}
+
+footer {
+    margin-top: 200px;
+    width: 100%;
+}
+
+.copywrite-txt {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+}
+
+.social-media {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+.corpo-clinico {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.txt-corpo-clinico {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    gap: 10px;
+}
+
+.cards {
+    margin-top: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    overflow-x: hidden;  
+    scroll-behavior: smooth; 
+    flex-wrap: nowrap;
+}
+
+.card {
+    width: 250px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;    
+    background-color: #fff;
+    flex: 0 0 auto;
+}
+
+.imagem-medica {
+    flex: 0 0 80%; 
+}
+
+.imagem-medica img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    background-color: #F4E7D2;
+}
+
+.info-medica {
+    flex: 0 0 20%;
+    padding: 10px;
+    text-align: center;
+    background-color: #DDB6A1;
+}
+
+.info-medica h2 {
+    font-size: 16px;
+    margin: 0;
+}
+
+.info-medica p {
+    margin: 4px 0 0;
+    font-size: 14px;
+    color: #555;
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #F9F4EF;
+    padding: 50px;
+}
+
+.footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+#footer-image-madreperola {
+    border-radius: 20px;
+}
+
+.footer-missao {
+    width: 300px;
+}
+
+.footer-end {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px; /* espaço entre o texto e as redes sociais */
+  padding-top: 20px;
+}
+
+.footer-social {
+  display: flex;
+  gap: 20px; /* espaço entre os ícones */
+}
+
+.footer-social img {
+  transition: transform 0.3s;
+}
+
+.footer-social img:hover {
+  transform: scale(1.1);
+}
+
+/* ===== Responsividade Básica ===== */
+
+/* Para telas até 1024px (tablets e desktops menores) */
+@media (max-width: 1024px) {
+  header {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .nav-bar {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .op-txt {
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+
+  .ex-01 {
+    flex-direction: column;
+    width: 100%;
+    gap: 20px;
+    padding: 0 10px;
+  }
+
+  .cards {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    gap: 20px;
+    padding: 0 10px;
+  }
+}
+
+/* Para telas até 600px (celulares) */
+@media (max-width: 600px) {
+  header img {
+    width: 150px;
+  }
+
+  .nav-bar {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .op-txt {
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0 15px;
+  }
+
+  .op-tricologia {
+    padding: 20px 15px;
+  }
+
+  .ex-01 {
+    flex-direction: column;
+    width: 100%;
+    padding: 0 15px;
+    gap: 15px;
+  }
+
+  .cards {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  footer {
+    padding: 30px 15px;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-missao {
+    width: 100%;
+    max-width: 350px;
+  }
+
+  .footer-end {
+    padding-top: 10px;
+  }
+}
+
