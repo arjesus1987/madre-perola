@@ -46,8 +46,9 @@
           <div class="collapse" id="submenuCadastro">
             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
               <li><a href="/cadastrousuario" class="nav-link text-white ps-4">Usuário</a></li>
-              <li><a href="/visualizarUsuarios" class="nav-link text-white ps-4">Visualizar Usuários</a></li>
+              <li><a href="/visualizarUsuario" class="nav-link text-white ps-4">Visualizar Usuários</a></li>
               <li><a href="/cadastroespecialidade" class="nav-link text-white ps-4">Especialidade</a></li>
+              <li><a href="/visualizarEspecialidades" class="nav-link text-white ps-4">Visualizar Especialidades</a></li>
             </ul>
           </div>
         </li>
