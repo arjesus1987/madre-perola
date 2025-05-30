@@ -1,8 +1,6 @@
 
 <x-layoutadm>
-    <h1>Painel Administrativo</h1>
-    <p>Bem-vindo ao painel administrativo!</p>
-  <div class="container my-5">
+   <div class="container my-5">
     <h1 class="mb-4">Painel de Agendamentos</h1>
 
     <!-- AGENDAMENTOS MARCADOS -->

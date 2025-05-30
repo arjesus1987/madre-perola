@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Produto;
-use GuzzleHttp\Psr7\Request;
 
 class ProdutoController extends Controller
 {

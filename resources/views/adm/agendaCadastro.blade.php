@@ -1,4 +1,4 @@
-<x-layoutadm>
+
  <div class="main-content" id="cadastrarAgendamento">
   <h1>Cadastro de Agenda de Atendimento</h1>
   <div class="row">
