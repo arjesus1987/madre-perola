@@ -11,11 +11,10 @@ input: ['resources/css/app.css',
                     'resources/css/admHome.css',
                     'resources/css/hf.css',
                     'resources/asset/images/*.svg', 
-                    'resources/css/homesite.css',  'resources/asset/imgs/*.jpg', 'resources/asset/imgs/*.jpeg', 'resources/asset/imgs/*.png'],
-                    'resources/asset/video/*.mov'
+                    'resources/css/homesite.css',  'resources/asset/imgs/*.jpg', 'resources/asset/imgs/*.jpeg', 'resources/asset/imgs/*.png',
+                    'resources/asset/video/*.mov'],
 refresh: true,
         }),
         tailwindcss(),
     ],
 });
- 
