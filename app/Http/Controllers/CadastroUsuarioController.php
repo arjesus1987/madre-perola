@@ -35,10 +35,24 @@ class CadastroUsuarioController extends Controller
             'status' => $request->status,
             'observacao' => $request->observacao
         ]);
+
+        $usuario->enderecos()->create([
+        'logradouro' => $request->logradouro,
+        'numero' => $request->numero,
+        'cep' => $request->cep,
+        'cidade' => $request->cidade,
+        'uf' => $request->uf,
+        'complemento' => $request->complemento,
+    ]);
+
         if ($usuario) {
             return redirect('/cadastrousuario')->with('success', 'Usuário cadastrado com sucesso!');
         } else {
             return back()->with('error', 'Erro ao cadastrar usuário. Tente novamente.');
         }
+
+
+
+
     }
 }

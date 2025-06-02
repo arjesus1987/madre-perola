@@ -23,4 +23,10 @@ class CadastroUsuario extends Model
     ];
     public $timestamps = false;
     protected $hidden = ['senha'];
+
+
+    public function enderecos()
+    {
+        return $this->hasMany(Endereco::class, 'idUsuario', 'idUsuario');
+    }
 }
