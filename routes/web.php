@@ -15,7 +15,6 @@ use App\Http\Controllers\EspecialidadeController;
 use App\Http\Controllers\HomeSiteController;
 use App\Http\Controllers\CadastrarFornecedorHomeController;
 use App\Http\Controllers\VisualizarFornecedoresHomeController;
-use App\Http\Controllers\CadastrarProdutoHomeController;
 use App\Http\Controllers\CadastroUsuarioController;
 use App\Http\Controllers\VisualizarProdutosHomeController;
 use App\Http\Controllers\GerenciamentoProdutoHomeController;
@@ -23,13 +22,15 @@ use App\Http\Controllers\ExperienciasController;
 use App\Http\Controllers\CatalogoController;
 
 
+use App\Http\Controllers\CadastrarProdutoHomeController;
+
+Route::post('/cadastrarProduto', [CadastrarProdutoHomeController::class, 'store']);
+Route::get('/cadastrarProduto', [CadastrarProdutoHomeController::class, 'index']);
 
 Route::get('/', [HomeSiteController::class, "index"]);
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 
-Route::get('/produtos/{id}', [ProdutoController::class, 'show'])->name('produtos.show');
 
-Route::get('/produtos', [ProdutoController::class, 'index'])->name('produtos.index');
 Route::get('/home', [HomeController::class, "index"]);
 
 Route::get('/cadastrousuario', [CadastroHomeController::class, "index"]);
@@ -45,11 +46,10 @@ Route::get('/visualizarUsuario', [VisualizarUsuariosHomeController::class, 'inde
 Route::get('/visualizarEspecialidades', [VisualizarEspecialidadesHomeController::class, 'index']);
 Route::get('/cadastrarFornecedor', [CadastrarFornecedorHomeController::class, 'index']);
 Route::get('/visualizarFornecedores', [VisualizarFornecedoresHomeController::class, 'index']);
-Route::get('/cadastrarProduto', [CadastrarProdutoHomeController::class, 'index']);
+
+
 Route::get('/visualizarProdutos', [VisualizarProdutosHomeController::class, 'index']);
-Route::prefix('adm')->name('adm.')->middleware('auth')->group(function () {
-    Route::resource('/gerenciamentoProdutos', GerenciamentoProdutoHomeController::class);
-});
+
 Route::get('/especialidades', [EspecialidadeController::class, 'index']);
 
 Route::get('/experiencias', function () {
@@ -82,4 +82,4 @@ Route::get('/cosmiatria', function () {
 
 
 
-Route::get('/produtos', [ProdutoController::class, 'index'])->name('produtos.index');
+
