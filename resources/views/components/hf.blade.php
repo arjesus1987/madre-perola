@@ -3,13 +3,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
-    @vite(['resources/css/hf.css','resources/css/app.css'])
+    @vite(['resources/css/hf.css','resources/css/app.css', 'resources/css/homesite.css'])
     <title>hf</title>
   </head>
 <body>
     <header>
         <div class="container">
-            <img src="{{ vite::asset('resources/asset/images/logo-horizontal 1.svg') }}" alt="Logo" class="logo-footer"> 
+            <img src="{{ Vite::asset('resources/asset/images/logo-horizontal 1.svg') }}" alt="Logo" class="logo-footer"> 
             <nav>
                 <ul>
                     <li><a href="#">Home</a></li>
@@ -24,13 +24,6 @@
 
 
         {{ $slot }}
-
-
-
-
-
-
-
 
 
     <footer>
