@@ -27,7 +27,6 @@ Route::get('/',[HomeSiteController::class, "index"]);
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 
 Route::get('/produtos/{id}', [ProdutoController::class, 'show'])->name('produtos.show');
-
 Route::get('/produtos', [ProdutoController::class, 'index'])->name('produtos.index');
 Route::get('/home',[HomeController::class, "index"]);
 Route::get('/cadastrousuario',[CadastroHomeController::class, "index"]);
