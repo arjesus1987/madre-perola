@@ -17,7 +17,9 @@ return new class extends Migration
             $table->string('cpf');
             $table->string('rg');
             $table->string('dt_nascimento');
+            $table->string('sexo');
             $table->string('estado_civil');
+            $table->string('tipo_usuario');
             $table->string('login');
             $table->string('senha');
             $table->string('status');
