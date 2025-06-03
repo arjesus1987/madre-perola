@@ -12,7 +12,7 @@ export default defineConfig({
                 'resources/css/hf.css',
                 'resources/asset/images/*.svg', 
                     'resources/css/homesite.css',  'resources/asset/imgs/*.jpg', 'resources/asset/imgs/*.jpeg', 'resources/asset/imgs/*.png',
-                    'resources/asset/video/*.mov'],
+                    'resources/asset/video/*.mov',],
             refresh: true,
         }),
         tailwindcss(),
