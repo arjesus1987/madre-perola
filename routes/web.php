@@ -15,34 +15,73 @@ use App\Http\Controllers\EspecialidadeController;
 use App\Http\Controllers\HomeSiteController;
 use App\Http\Controllers\CadastrarFornecedorHomeController;
 use App\Http\Controllers\VisualizarFornecedoresHomeController;
-use App\Http\Controllers\CadastrarProdutoHomeController;
+use App\Http\Controllers\CadastroUsuarioController;
 use App\Http\Controllers\VisualizarProdutosHomeController;
 use App\Http\Controllers\GerenciamentoProdutoHomeController;
 use App\Http\Controllers\ExperienciasController;
-use App\Http\Controllers\CatalogoController;    
+use App\Http\Controllers\CatalogoController;
+
+
+use App\Http\Controllers\CadastrarProdutoHomeController;
 
 
 
-Route::get('/',[HomeSiteController::class, "index"]);
+Route::get('/', [HomeSiteController::class, "index"]);
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 
 
+<<<<<<< HEAD
 Route::get('/home',[HomeController::class, "index"]);
 Route::get('/cadastrousuario',[CadastroHomeController::class, "index"]);
 Route::get('/cadastroespecialidade',[CadastroEspecialidadeHomeController::class, "index"]);
 Route::get('/agendaCadastro',[CadastroAgendaHomeController::class, "index"]);
+=======
+Route::get('/home', [HomeController::class, "index"]);
+
+Route::get('/cadastrousuario', [CadastroHomeController::class, "index"]);
+Route::get('/cadastrousuario', [CadastroUsuarioController::class, 'create']);
+Route::post('/cadastrousuario', [CadastroUsuarioController::class, 'store']);
+
+
+// Rotas de Fornecedores
+Route::get('/cadastrarFornecedor', [CadastrarFornecedorHomeController::class, 'index']);
+Route::post('/cadastrarFornecedor', [CadastrarFornecedorHomeController::class, 'store']);
+
+//Rotas de Produtos
+Route::post('/cadastrarProduto', [CadastrarProdutoHomeController::class, 'store']);
+Route::get('/cadastrarProduto', [CadastrarProdutoHomeController::class, 'index']);
+
+
+//Rotas Agendas
+Route::get('/cadastroAgenda', [CadastroAgendaHomeController::class, 'index'])->name('agendas.index');
+Route::get('/cadastroAgenda/create', [CadastroAgendaHomeController::class, 'create'])->name('agendas.create');
+Route::post('/cadastroAgenda', [CadastroAgendaHomeController::class, 'store'])->name('agendas.store');
+Route::get('/cadastroespecialidade', [CadastroEspecialidadeHomeController::class, "index"]);
+
+>>>>>>> fe6ae63ac90aca18186b3d2384946b1ba09c60e7
 Route::get('/agendaVisualizar', [AgendaVisualizarHomeController::class, 'index']);
 Route::get('/visualizarPerfilUsuario', [PerfilVisualizarHomeController::class, 'index']);
-Route::get('/visualizarUsuario', [VisualizarUsuariosHomeController::class, 'index']);
+
+
+Route::get('/visualizarUsuario', [VisualizarUsuariosHomeController::class, 'index'])->name('adm.visualizarUsuario');
+Route::get('/visualizarUsuario/{id}', [VisualizarUsuariosHomeController::class, 'show'])->name('adm.visualizarUsuario');
+
+
+
 Route::get('/visualizarEspecialidades', [VisualizarEspecialidadesHomeController::class, 'index']);
 Route::get('/cadastrarFornecedor', [CadastrarFornecedorHomeController::class, 'index']);
 Route::get('/visualizarFornecedores', [VisualizarFornecedoresHomeController::class, 'index']);
+<<<<<<< HEAD
 Route::get('/cadastrarProduto', [CadastrarProdutoHomeController::class, 'index']);
 Route::get('/visualizarProdutos', [VisualizarProdutosHomeController::class, 'index']);
 Route::prefix('adm')->name('adm.')->middleware('auth')->group(function () {
     //Route::resource('/gerenciamentoProdutos', [GerenciamentoProdutoHomeController::class, 'index']);
+=======
+>>>>>>> fe6ae63ac90aca18186b3d2384946b1ba09c60e7
 
-});
+
+Route::get('/visualizarProdutos', [VisualizarProdutosHomeController::class, 'index']);
+
 Route::get('/especialidades', [EspecialidadeController::class, 'index']);
 
 Route::get('/experiencias', function () {
@@ -73,5 +112,11 @@ Route::get('/cosmiatria', function () {
     return view('especialidades.cosmiatria');
 });
 
+<<<<<<< HEAD
 Route::get('/produtos', [ProdutoController::class, 'index'])->name('produtos.index');
 Route::get('/produtos/{id}', [ProdutoController::class, 'show'])->name('produtos.show');
+=======
+
+
+
+>>>>>>> fe6ae63ac90aca18186b3d2384946b1ba09c60e7

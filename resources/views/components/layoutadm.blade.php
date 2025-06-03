@@ -6,6 +6,14 @@
   <title>Barra Lateral à Esquerda · Bootstrap 5.3</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+  <script>
+  $(document).ready(function(){
+    $('#cnpj_cpf').mask('00.000.000/0000-00');
+  });
+</script>
+
   {{-- FullCalendar JS --}}
   <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js"></script>
   {{-- CSS do projeto --}}
@@ -67,7 +75,7 @@
           </a>
           <div class="collapse" id="submenuAgendamento">
             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-              <li><a href="/agendaCadastro" class="nav-link text-white ps-4">Cadastrar</a></li>
+              <li><a href="/cadastroAgenda" class="nav-link text-white ps-4">Cadastrar</a></li>
               <li><a href="/agendaVisualizar" class="nav-link text-white ps-4">Visualizar</a></li>
             </ul>
           </div>
@@ -108,6 +116,7 @@
     {{$slot}}
      <br><br><br><br>   
     </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   </div>
 
   <!-- ÍCONES SVG -->
