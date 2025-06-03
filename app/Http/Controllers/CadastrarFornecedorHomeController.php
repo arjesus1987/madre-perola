@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Fornecedor;
+use App\Models\CadastroUsuario; 
 
 class CadastrarFornecedorHomeController extends Controller
 {

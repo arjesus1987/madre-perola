@@ -75,7 +75,7 @@
           </a>
           <div class="collapse" id="submenuAgendamento">
             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-              <li><a href="/agendaCadastro" class="nav-link text-white ps-4">Cadastrar</a></li>
+              <li><a href="/cadastroAgenda" class="nav-link text-white ps-4">Cadastrar</a></li>
               <li><a href="/agendaVisualizar" class="nav-link text-white ps-4">Visualizar</a></li>
             </ul>
           </div>

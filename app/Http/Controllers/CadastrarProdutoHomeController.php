@@ -5,18 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Produto;  // Model do produto
 
+
 class CadastrarProdutoHomeController extends Controller
 {
-    // public function __construct()
-    // {
-    //     $idUsuario = auth()->id();
-
-    //     if (!$idUsuario) {
-    //         // Se não estiver autenticado, retorna com erro ou redireciona
-    //         redirect()->back()->withErrors(['Usuário não autenticado.'])->withInput()->send();
-    //         exit;
-    //     }
-    // }
+   
 
    public function index()
     {

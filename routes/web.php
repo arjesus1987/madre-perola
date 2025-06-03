@@ -46,8 +46,12 @@ Route::post('/cadastrarProduto', [CadastrarProdutoHomeController::class, 'store'
 Route::get('/cadastrarProduto', [CadastrarProdutoHomeController::class, 'index']);
 
 
+//Rotas Agendas
+Route::get('/cadastroAgenda', [CadastroAgendaHomeController::class, 'index'])->name('agendas.index');
+Route::get('/cadastroAgenda/create', [CadastroAgendaHomeController::class, 'create'])->name('agendas.create');
+Route::post('/cadastroAgenda', [CadastroAgendaHomeController::class, 'store'])->name('agendas.store');
 Route::get('/cadastroespecialidade', [CadastroEspecialidadeHomeController::class, "index"]);
-Route::get('/agendaCadastro', [CadastroAgendaHomeController::class, "index"]);
+
 Route::get('/agendaVisualizar', [AgendaVisualizarHomeController::class, 'index']);
 Route::get('/visualizarPerfilUsuario', [PerfilVisualizarHomeController::class, 'index']);
 Route::get('/visualizarUsuario', [VisualizarUsuariosHomeController::class, 'index']);
