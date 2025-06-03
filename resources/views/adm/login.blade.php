@@ -1,9 +1,21 @@
-<x-hf>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap demo</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+  @vite(['resources/css/login.css'])
+</head>
+
+<body>
+
   <div class="login-form">
-     <!-- LOGO ACIMA DO MENU -->
-      <div class="text-center mb-3">
-        <img src="{{ Vite::asset('resources/asset/images/logo-horizontal.svg') }}">
-      </div>
+    <!-- LOGO ACIMA DO MENU -->
+    <div class="text-center mb-3" style="width: 80%;">
+      <img src="{{ Vite::asset('resources/asset/images/logo-horizontal.svg') }}" alt=login-Logo" class="logo">
+    </div>
     <h2>Login do Sistema</h2>
     <form>
       <div class="mb-3">
@@ -21,13 +33,9 @@
       <button type="submit" class="btn btn-primary w-100">Entrar</button>
     </form>
   </div>
-  </x-hf>
 
-  <div class="image-box">
-    <img src="img/clinica.png" alt="Moça da madrepérola" class="side-image">
-  </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
 </body>
+
 </html>
-  
