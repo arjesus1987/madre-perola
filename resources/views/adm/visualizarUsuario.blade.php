@@ -1,5 +1,15 @@
 <x-layoutadm>
-      <div class="container my-5" id="usuarios">
+  teste
+
+  @foreach($showUsuario as $imc)
+  <tr>
+    <th scope="row">{{$imc->idUsuario}}</th>
+    <td>{{$imc->nome}}</td>
+  </tr>
+
+  @endforeach
+
+  <div class="container my-5" id="usuarios">
     <h1 class="mb-4">Visualizar Usuários</h1>
 
     <!-- Filtros -->
@@ -56,18 +66,19 @@
           </tr>
         </thead>
         <tbody>
-          <!-- Aqui o servidor vai preencher via Blade, exemplo estático: -->
+          @foreach($showUsuario as $usuario)
           <tr>
-            <td>João Silva</td>
-            <td>123.456.789-00</td>
+            <td>{{$usuario->nome}}</td>
+            <td>{{$usuario->cpf}}</td>
             <td>joao@example.com</td>
-            <td>Administrador</td>
-            <td><span class="badge bg-success">Ativo</span></td>
+            <td>{{$usuario->tipo_usuario}}</td>
+            <td><span class="badge bg-success">{{$usuario->status}}</span></td>
             <td class="text-center">
               <a href="/usuarios/1" class="btn btn-sm btn-info">Visualizar</a>
               <a href="/usuarios/1/edit" class="btn btn-sm btn-warning">Editar</a>
             </td>
           </tr>
+          @endforeach
           <!-- Exemplo vazio -->
           <!-- <tr><td colspan="6" class="text-center">Nenhum usuário encontrado.</td></tr> -->
         </tbody>
@@ -77,11 +88,7 @@
     <!-- Paginação -->
     <nav aria-label="Paginação">
       <ul class="pagination justify-content-center mt-4">
-        <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1">Anterior</a></li>
-        <li class="page-item active"><a class="page-link" href="#">1</a></li>
-        <li class="page-item"><a class="page-link" href="#">2</a></li>
-        <li class="page-item"><a class="page-link" href="#">3</a></li>
-        <li class="page-item"><a class="page-link" href="#">Próximo</a></li>
+        {{ $showUsuario->links() }}
       </ul>
     </nav>
   </div>

@@ -54,7 +54,13 @@ Route::get('/cadastroespecialidade', [CadastroEspecialidadeHomeController::class
 
 Route::get('/agendaVisualizar', [AgendaVisualizarHomeController::class, 'index']);
 Route::get('/visualizarPerfilUsuario', [PerfilVisualizarHomeController::class, 'index']);
-Route::get('/visualizarUsuario', [VisualizarUsuariosHomeController::class, 'index']);
+
+
+Route::get('/visualizarUsuario', [VisualizarUsuariosHomeController::class, 'index'])->name('adm.visualizarUsuario');
+Route::get('/visualizarUsuario/{id}', [VisualizarUsuariosHomeController::class, 'show'])->name('adm.visualizarUsuario');
+
+
+
 Route::get('/visualizarEspecialidades', [VisualizarEspecialidadesHomeController::class, 'index']);
 Route::get('/cadastrarFornecedor', [CadastrarFornecedorHomeController::class, 'index']);
 Route::get('/visualizarFornecedores', [VisualizarFornecedoresHomeController::class, 'index']);
