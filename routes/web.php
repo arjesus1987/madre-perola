@@ -40,7 +40,7 @@ Route::get('/visualizarFornecedores', [VisualizarFornecedoresHomeController::cla
 Route::get('/cadastrarProduto', [CadastrarProdutoHomeController::class, 'index']);
 Route::get('/visualizarProdutos', [VisualizarProdutosHomeController::class, 'index']);
 Route::prefix('adm')->name('adm.')->middleware('auth')->group(function () {
-    Route::resource('/gerenciamentoProdutos', [GerenciamentoProdutoHomeController::class, 'index']);
+    //Route::resource('/gerenciamentoProdutos', [GerenciamentoProdutoHomeController::class, 'index']);
 
 });
 Route::get('/especialidades', [EspecialidadeController::class, 'index']);
