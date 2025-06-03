@@ -2,8 +2,18 @@
 <div class="container mt-5">
     <h2 class="mb-4">Cadastro de Produto</h2>
 
-    <form method="POST" action="/produtos/cadastrar" enctype="multipart/form-data">
-      <!-- Laravel: @csrf -->
+      @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif  
+
+     <form action="{{ url('/cadastrarProduto') }}" method="POST" enctype="multipart/form-data">
+    @csrf
 
       <div class="mb-3">
         <label for="nome" class="form-label">Nome do Produto</label>
@@ -55,8 +65,8 @@
         <label for="status" class="form-label">Status</label>
         <select class="form-select" id="status" name="status" required>
           <option value="">Selecione</option>
-          <option value="ativo">Ativo</option>
-          <option value="inativo">Inativo</option>
+          <option value="1">Ativo</option>
+          <option value="0">Inativo</option>
         </select>
       </div>
 

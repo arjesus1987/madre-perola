@@ -14,9 +14,13 @@ return new class extends Migration
         Schema::create('cadastro_produto', function (Blueprint $table) {
             $table->id("id_produto");
             $table->string('descricao');
-    
             $table->primary('id_produto');
-
+            $table->string('nome_produto');
+            $table->decimal('preco', 10, 2)->nullable();
+            $table->integer('quantidade')->default(0);
+            $table->string('categoria')->nullable();
+            $table->string('imagem')->nullable(); // Caminho da imagem, por exemplo: "produtos/imagem.jpg"
+            $table->boolean('status')->default(true); // true = ativo, false = inativo
 
             $table->bigInteger('id_fornecedor')->unsigned();
 
@@ -24,7 +28,6 @@ return new class extends Migration
                 ->references('id_fornecedor')
                 ->on('cadastro_fornecedor')
                 ->onDelete('cascade');
-
         });
     }
 
@@ -33,6 +36,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('cadastro_produto');
     }
 };

@@ -2,7 +2,19 @@
 <div class="container mt-5">
     <h2 class="mb-4">Cadastro de Fornecedor</h2>
 
-    <form method="POST" action="/fornecedores/cadastrar">
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif  
+
+    <form action="{{ url('/cadastrarFornecedor') }}" method="POST" enctype="multipart/form-data">
+    @csrf
+
   
       <div class="mb-3">
         <label for="nome" class="form-label">Nome do Fornecedor</label>
@@ -11,7 +23,7 @@
 
       <div class="mb-3">
         <label for="cnpj" class="form-label">CNPJ</label>
-        <input type="text" class="form-control" id="cnpj" name="cnpj" required>
+        <input type="text" class="form-control" id="cnpj_cpf" name="cnpj_cpf" required>
       </div>
 
       <div class="mb-3">
@@ -33,8 +45,8 @@
         <label for="status" class="form-label">Status</label>
         <select class="form-select" id="status" name="status" required>
           <option value="">Selecione</option>
-          <option value="ativo">Ativo</option>
-          <option value="inativo">Inativo</option>
+          <option value="1">Ativo</option>
+          <option value="0">Inativo</option>
         </select>
       </div>
 
