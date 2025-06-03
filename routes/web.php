@@ -24,8 +24,7 @@ use App\Http\Controllers\CatalogoController;
 
 use App\Http\Controllers\CadastrarProdutoHomeController;
 
-Route::post('/cadastrarProduto', [CadastrarProdutoHomeController::class, 'store']);
-Route::get('/cadastrarProduto', [CadastrarProdutoHomeController::class, 'index']);
+
 
 Route::get('/', [HomeSiteController::class, "index"]);
 Route::get('/login', [LoginController::class, 'index'])->name('login');
@@ -34,9 +33,18 @@ Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::get('/home', [HomeController::class, "index"]);
 
 Route::get('/cadastrousuario', [CadastroHomeController::class, "index"]);
-
 Route::get('/cadastrousuario', [CadastroUsuarioController::class, 'create']);
 Route::post('/cadastrousuario', [CadastroUsuarioController::class, 'store']);
+
+
+// Rotas de Fornecedores
+Route::get('/cadastrarFornecedor', [CadastrarFornecedorHomeController::class, 'index']);
+Route::post('/cadastrarFornecedor', [CadastrarFornecedorHomeController::class, 'store']);
+
+//Rotas de Produtos
+Route::post('/cadastrarProduto', [CadastrarProdutoHomeController::class, 'store']);
+Route::get('/cadastrarProduto', [CadastrarProdutoHomeController::class, 'index']);
+
 
 Route::get('/cadastroespecialidade', [CadastroEspecialidadeHomeController::class, "index"]);
 Route::get('/agendaCadastro', [CadastroAgendaHomeController::class, "index"]);

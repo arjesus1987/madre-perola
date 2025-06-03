@@ -16,6 +16,12 @@ return new class extends Migration
             $table->string('nome');
             $table->string('cnpj_cpf');
 
+            // Novos campos
+            $table->string('email')->nullable();
+            $table->string('telefone')->nullable();
+            $table->string('endereco')->nullable();
+            $table->boolean('status')->default(true); // true = ativo
+
             $table->primary('id_fornecedor');
 
             $table->bigInteger('idUsuario')->unsigned();
@@ -24,7 +30,6 @@ return new class extends Migration
                 ->references('idUsuario')
                 ->on('cadastro_usuario')
                 ->onDelete('cascade');
-
         });
     }
 
@@ -33,6 +38,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('cadastro_fornecedor');
     }
 };
