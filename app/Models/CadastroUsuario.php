@@ -29,4 +29,9 @@ class CadastroUsuario extends Model
     {
         return $this->hasMany(Endereco::class, 'idUsuario', 'idUsuario');
     }
+
+    public function usuarios(){
+        return $this->belongsTo(CadastroUsuario::class, 'idUsuario');
+    }
+
 }
