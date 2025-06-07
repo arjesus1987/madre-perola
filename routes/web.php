@@ -5,12 +5,11 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CadastroHomeController;
 use App\Http\Controllers\ProdutoController;
-use App\Http\Controllers\CadastroEspecialidadeHomeController;
 use App\Http\Controllers\CadastroAgendaHomeController;
 use App\Http\Controllers\AgendaVisualizarHomeController;
+use App\Http\Controllers\CadastrarEspecialidadeController;
 use App\Http\Controllers\PerfilVisualizarHomeController;
 use App\Http\Controllers\VisualizarUsuariosHomeController;
-use App\Http\Controllers\VisualizarEspecialidadesHomeController;
 use App\Http\Controllers\EspecialidadeController;
 use App\Http\Controllers\HomeSiteController;
 use App\Http\Controllers\CadastrarFornecedorHomeController;
@@ -20,9 +19,40 @@ use App\Http\Controllers\VisualizarProdutosHomeController;
 use App\Http\Controllers\GerenciamentoProdutoHomeController;
 use App\Http\Controllers\ExperienciasController;
 use App\Http\Controllers\CatalogoController;
-
+use App\Http\Controllers\CadastrarProdutoController;
+use App\Http\Controllers\VisualizarEspecialidadesController;
+use App\Http\Controllers\UsuarioController;
 
 use App\Http\Controllers\CadastrarProdutoHomeController;
+use App\Http\Controllers\CepController;
+
+
+// Rotas Cadastro Usuário
+Route::get('/cadastrousuario', [CadastroUsuarioController::class, 'index'])->name('cadastrousuario.index');
+Route::get('/usuario/create', [CadastroUsuarioController::class, 'create'])->name('usuario.create');
+Route::post('/usuario/store', [CadastroUsuarioController::class, 'store'])->name('usuario.store');
+
+
+
+// Rotas Cadastro produto
+Route::post('/cadastrarProduto', [CadastrarProdutoHomeController::class, 'store']);
+Route::get('/cadastrarProduto', [CadastrarProdutoHomeController::class, 'index']);
+
+//Rotas Agendas
+Route::get('/cadastroAgenda', [CadastroAgendaHomeController::class, 'index'])->name('agendas.index');
+Route::get('/cadastroAgenda/create', [CadastroAgendaHomeController::class, 'create'])->name('agendas.create');
+Route::post('/cadastroAgenda', [CadastroAgendaHomeController::class, 'store'])->name('agendas.store');
+
+//Rotas Especialidades
+Route::get('/cadastroespecialidade', [CadastrarEspecialidadeController::class, 'index'])->name('cadastroespecialidade.index');
+Route::post('/cadastroespecialidade', [CadastrarEspecialidadeController::class, 'store'])->name('cadastroespecialidade.store');
+Route::get('/visualizarEspecialidades', [VisualizarEspecialidadesController::class, 'index'])->name('visualizarEspecialidades.index');
+
+//Rotas Fornecedores
+Route::get('/cadastrarfornecedor', [CadastrarFornecedorHomeController::class, 'index'])->name('cfornecedor.index');
+Route::post('/cadastrarfornecedor', [CadastrarFornecedorHomeController::class, 'store'])->name('fornecedor.store');
+
+
 
 
 
@@ -30,93 +60,16 @@ Route::get('/', [HomeSiteController::class, "index"]);
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 
 
-<<<<<<< HEAD
-Route::get('/home',[HomeController::class, "index"]);
-Route::get('/cadastrousuario',[CadastroHomeController::class, "index"]);
-Route::get('/cadastroespecialidade',[CadastroEspecialidadeHomeController::class, "index"]);
-Route::get('/agendaCadastro',[CadastroAgendaHomeController::class, "index"]);
-=======
 Route::get('/home', [HomeController::class, "index"]);
 
 Route::get('/cadastrousuario', [CadastroHomeController::class, "index"]);
+
 Route::get('/cadastrousuario', [CadastroUsuarioController::class, 'create']);
 Route::post('/cadastrousuario', [CadastroUsuarioController::class, 'store']);
 
 
-// Rotas de Fornecedores
-Route::get('/cadastrarFornecedor', [CadastrarFornecedorHomeController::class, 'index']);
-Route::post('/cadastrarFornecedor', [CadastrarFornecedorHomeController::class, 'store']);
 
-//Rotas de Produtos
-Route::post('/cadastrarProduto', [CadastrarProdutoHomeController::class, 'store']);
-Route::get('/cadastrarProduto', [CadastrarProdutoHomeController::class, 'index']);
-
-
-//Rotas Agendas
-Route::get('/cadastroAgenda', [CadastroAgendaHomeController::class, 'index'])->name('agendas.index');
-Route::get('/cadastroAgenda/create', [CadastroAgendaHomeController::class, 'create'])->name('agendas.create');
-Route::post('/cadastroAgenda', [CadastroAgendaHomeController::class, 'store'])->name('agendas.store');
-Route::get('/cadastroespecialidade', [CadastroEspecialidadeHomeController::class, "index"]);
-
->>>>>>> fe6ae63ac90aca18186b3d2384946b1ba09c60e7
-Route::get('/agendaVisualizar', [AgendaVisualizarHomeController::class, 'index']);
-Route::get('/visualizarPerfilUsuario', [PerfilVisualizarHomeController::class, 'index']);
-
-
-Route::get('/visualizarUsuario', [VisualizarUsuariosHomeController::class, 'index'])->name('adm.visualizarUsuario');
-Route::get('/visualizarUsuario/{id}', [VisualizarUsuariosHomeController::class, 'show'])->name('adm.visualizarUsuario');
-
-
-
-Route::get('/visualizarEspecialidades', [VisualizarEspecialidadesHomeController::class, 'index']);
-Route::get('/cadastrarFornecedor', [CadastrarFornecedorHomeController::class, 'index']);
-Route::get('/visualizarFornecedores', [VisualizarFornecedoresHomeController::class, 'index']);
-<<<<<<< HEAD
-Route::get('/cadastrarProduto', [CadastrarProdutoHomeController::class, 'index']);
-Route::get('/visualizarProdutos', [VisualizarProdutosHomeController::class, 'index']);
-Route::prefix('adm')->name('adm.')->middleware('auth')->group(function () {
-    //Route::resource('/gerenciamentoProdutos', [GerenciamentoProdutoHomeController::class, 'index']);
-=======
->>>>>>> fe6ae63ac90aca18186b3d2384946b1ba09c60e7
-
-
-Route::get('/visualizarProdutos', [VisualizarProdutosHomeController::class, 'index']);
-
-Route::get('/especialidades', [EspecialidadeController::class, 'index']);
 
 Route::get('/experiencias', function () {
     return view('experiencias');
 });
-
-Route::get('/catalogo', function () {
-    return view('catalogo');
-});
-
-Route::get('/nutrologia', function () {
-    return view('especialidades.nutrologia');
-});
-
-Route::get('/cirurgia-plastica', function () {
-    return view('especialidades.cirurgia-plastica');
-});
-
-Route::get('/dermatologia', function () {
-    return view('especialidades.dermatologia');
-});
-
-Route::get('/tricologia', function () {
-    return view('especialidades.tricologia');
-});
-
-Route::get('/cosmiatria', function () {
-    return view('especialidades.cosmiatria');
-});
-
-<<<<<<< HEAD
-Route::get('/produtos', [ProdutoController::class, 'index'])->name('produtos.index');
-Route::get('/produtos/{id}', [ProdutoController::class, 'show'])->name('produtos.show');
-=======
-
-
-
->>>>>>> fe6ae63ac90aca18186b3d2384946b1ba09c60e7

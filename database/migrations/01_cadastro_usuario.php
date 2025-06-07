@@ -1,38 +1,35 @@
-<?php
 
+<?php
+// database/migrations/xxxx_xx_xx_create_cadastro_usuario.php
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
-    /**
-     * Run the migrations.
-     */
+return new class extends Migration {
+
+    
     public function up(): void
     {
         Schema::create('cadastro_usuario', function (Blueprint $table) {
-            $table->id("idUsuario");
+            $table->id('idUsuario');
             $table->string('nome');
-            $table->string('cpf');
+            $table->string('cpf')->unique();
             $table->string('rg');
-            $table->string('dt_nascimento');
+            $table->date('dt_nascimento');
             $table->string('sexo');
             $table->string('estado_civil');
-            $table->string('tipo_usuario');
-            $table->string('login');
+            $table->string('login')->unique();
             $table->string('senha');
+            $table->integer('tipo_usuario');
             $table->string('status');
-            $table->string('observacao');
-            $table->primary('idUsuario');
+            $table->text('observacao')->nullable();
+            $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('cadastro_usuario');
     }
 };
+

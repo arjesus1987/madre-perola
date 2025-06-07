@@ -57,7 +57,7 @@
               <li><a href="/visualizarUsuario" class="nav-link text-white ps-4">Visualizar Usuários</a></li>
               <li><a href="/cadastroespecialidade" class="nav-link text-white ps-4">Especialidade</a></li>
               <li><a href="/visualizarEspecialidades" class="nav-link text-white ps-4">Visualizar Especialidades</a></li>
-              <li><a href="/cadastrarFornecedor" class="nav-link text-white ps-4">Fornecedor</a></li>
+              <li><a href="/cadastrarfornecedor" class="nav-link text-white ps-4">Fornecedor</a></li>
               <li><a href="/visualizarFornecedores" class="nav-link text-white ps-4">Visualizar Fornecedores</a></li>
               <li><a href="/cadastrarProduto" class="nav-link text-white ps-4">Produto</a></li>
               <li><a href="/visualizarProdutos" class="nav-link text-white ps-4">Visualizar Produtos</a></li>

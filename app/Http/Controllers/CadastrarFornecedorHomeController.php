@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Fornecedor;
-use App\Models\CadastroUsuario; 
 
 class CadastrarFornecedorHomeController extends Controller
 {
@@ -21,15 +20,10 @@ class CadastrarFornecedorHomeController extends Controller
             'email' => 'nullable|email|max:255',
             'telefone' => 'nullable|string|max:20',
             'endereco' => 'nullable|string|max:255',
-            'status' => 'required|in:1,0', // supondo que status seja 1 (ativo) ou 0 (inativo)
+            'status' => 'required|in:1,0',
         ]);
 
-        $idUsuario = auth()->id();
-
-        if (!$idUsuario) {
-            // Se não estiver autenticado, retorna com erro ou redireciona
-            return redirect()->back()->withErrors(['Usuário não autenticado.'])->withInput();
-        }
+        // Sem usuário autenticado, setando null para idUsuario
         Fornecedor::create([
             'nome' => $request->nome,
             'cnpj_cpf' => $request->cnpj_cpf,
@@ -37,10 +31,10 @@ class CadastrarFornecedorHomeController extends Controller
             'telefone' => $request->telefone,
             'endereco' => $request->endereco,
             'status' => $request->status,
-            'idUsuario' => $idUsuario,
+            'idUsuario' => 1,
         ]);
 
         return redirect()->back()->with('success', 'Fornecedor cadastrado com sucesso!');
     }
-    
 }
+

@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 class GerenciamentoProdutoHomeController extends Controller
+
+
 {
     public function index(Request $request)
     { 
@@ -40,6 +42,7 @@ class GerenciamentoProdutoHomeController extends Controller
         if ($request->hasFile('imagem')) {
             $data['imagem'] = $request->file('imagem')->store('produtos', 'public');
         }
+        $preco = str_replace(['R$', '.', ','], ['', '', '.'], $request->preco);
 
         Produto::create($data);
 

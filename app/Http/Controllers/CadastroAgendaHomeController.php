@@ -9,11 +9,13 @@ use Illuminate\Http\Request;
 class CadastroAgendaHomeController extends Controller
 {
 
-    public function index()
-    {
-        $agendas = CadastroAgenda::with('medico')->latest()->paginate(10);
-        return view('adm.cadastroAgenda', compact('agendas'));
-    }
+   public function index()
+{
+    $agendas = CadastroAgenda::with('medico')->latest()->paginate(10);
+    $medicos = Medico::orderBy('nome')->pluck('nome', 'id');  // adiciona esta linha
+    return view('adm.cadastroAgenda', compact('agendas', 'medicos'));
+}
+
 
     /* FORMULÁRIO DE CRIAÇÃO */
     public function create()
