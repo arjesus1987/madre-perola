@@ -21,17 +21,6 @@ class VisualizarUsuariosHomeController extends Controller
         return view('adm.visualizarUsuarioDetalhes')->with('usuario', $usuario);
     }
 
-    // public function update(Request $request, $id){
-    //     $updateIMC = ImcModel::findOrFail($id);
-
-    //     $updateIMC->nome = $request->novo_nome;
-    //     $updateIMC->peso = $request->novo_peso;
-    //     $updateIMC->altura = $request->novo_altura;
-
-    //     $updateIMC->save();
-
-    //     return redirect('/dashboard');
-
 
     
 

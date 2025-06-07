@@ -22,8 +22,15 @@ class VisualizarEspecialidadesController extends Controller
             $query->where('status', $status);
         }
 
-        $especialidades = $query->paginate(10);
+        $especialidades = $query->orderBy('nome')->paginate(10);
 
-        return view('adm.visualizarEspecialidade', compact('especialidades', 'nome', 'status'));
+
+        return view('adm.visualizarEspecialidades', compact('especialidades', 'nome', 'status'));
     }
+
+    public function show($id)
+{
+    $especialidade = Especialidade::findOrFail($id);
+    return view('adm.detalharEspecialidades', compact('especialidade'));
+}
 }

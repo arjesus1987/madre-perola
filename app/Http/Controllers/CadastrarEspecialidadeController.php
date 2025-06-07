@@ -8,8 +8,7 @@ use Illuminate\Http\Request;
 class CadastrarEspecialidadeController extends Controller
 {
     public function index()
-{
-    
+    {
         // Busca o maior código já cadastrado
         $ultimoCodigo = Especialidade::max('codigo') ?? 0;
 
@@ -18,32 +17,59 @@ class CadastrarEspecialidadeController extends Controller
 
         // Retorna a view passando o próximo código
         return view('adm.cadastroespecialidade', compact('proximoCodigo'));
-    
-}
-    public function create()
-    {
-        return view('adm.cadastroespecialidade');
     }
 
     public function store(Request $request)
     {
+        // Validação (opcional, mas recomendável)
         $request->validate([
-            'nomeEspecialidade' => 'required|string|max:255',
-            'codigoEspecialidade' => 'nullable|string|max:100',
+            'nome' => 'required|string|max:255',
+            'codigo' => 'required|integer|unique:especialidades,codigo',
             'descricao' => 'nullable|string',
-            'statusEspecialidade' => 'required|in:ativo,inativo',
+            'status' => 'required|string',
             'observacoes' => 'nullable|string',
         ]);
 
+        // Criação da especialidade
         Especialidade::create([
-            'nome' => $request->nomeEspecialidade,
-            'codigo' => $request->codigoEspecialidade,
+            'nome' => $request->nome,
+            'codigo' => $request->codigo,
             'descricao' => $request->descricao,
-            'status' => $request->statusEspecialidade,
+            'status' => $request->status,
             'observacoes' => $request->observacoes,
         ]);
 
-        return redirect()->route('especialidades.create')->with('success', 'Especialidade cadastrada com sucesso!');
+        // Redireciona de volta com mensagem de sucesso
+        return redirect()->route('cadastroespecialidade.index')->with('success', 'Especialidade cadastrada com sucesso!');
     }
+
+    public function edit($id)
+    {
+        $especialidade = Especialidade::findOrFail($id);
+        return view('adm.editarEspecialidade', compact('especialidade'));
+    }
+
+public function update(Request $request, $id)
+{
+    $request->validate([
+        'nome' => 'required|string|max:255',
+        'descricao' => 'nullable|string',
+        'status' => 'required|in:ativo,inativo',
+        'observacoes' => 'nullable|string',
+    ]);
+
+    $especialidade = Especialidade::findOrFail($id);
+
+    $especialidade->update([
+        'nome' => $request->nome,
+        'descricao' => $request->descricao,
+        'status' => $request->status,
+        'observacoes' => $request->observacoes,
+    ]);
+
+    return redirect()->route('visualizarEspecialidades.index')
+                     ->with('success', 'Especialidade atualizada com sucesso!');
 }
 
+
+}

@@ -32,8 +32,6 @@ Route::get('/cadastrousuario', [CadastroUsuarioController::class, 'index'])->nam
 Route::get('/usuario/create', [CadastroUsuarioController::class, 'create'])->name('usuario.create');
 Route::post('/usuario/store', [CadastroUsuarioController::class, 'store'])->name('usuario.store');
 
-
-
 // Rotas Cadastro produto
 Route::post('/cadastrarProduto', [CadastrarProdutoHomeController::class, 'store']);
 Route::get('/cadastrarProduto', [CadastrarProdutoHomeController::class, 'index']);
@@ -47,6 +45,11 @@ Route::post('/cadastroAgenda', [CadastroAgendaHomeController::class, 'store'])->
 Route::get('/cadastroespecialidade', [CadastrarEspecialidadeController::class, 'index'])->name('cadastroespecialidade.index');
 Route::post('/cadastroespecialidade', [CadastrarEspecialidadeController::class, 'store'])->name('cadastroespecialidade.store');
 Route::get('/visualizarEspecialidades', [VisualizarEspecialidadesController::class, 'index'])->name('visualizarEspecialidades.index');
+Route::get('/detalharEspecialidades/{id}', [VisualizarEspecialidadesController::class, 'show'])->name('detalharEspecialidades.show');
+Route::get('/especialidades/{id}/editar', [CadastrarEspecialidadeController::class, 'edit'])->name('especialidades.edit');
+Route::put('/especialidades/{id}', [CadastrarEspecialidadeController::class, 'update'])->name('especialidades.update');
+
+
 
 //Rotas Fornecedores
 Route::get('/cadastrarfornecedor', [CadastrarFornecedorHomeController::class, 'index'])->name('cfornecedor.index');

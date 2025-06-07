@@ -49,8 +49,8 @@
                             </span>
                         </td>
                         <td class="text-center">
-                            <a href="#" class="btn btn-sm btn-info">Visualizar</a>
-                            <a href="#" class="btn btn-sm btn-warning">Editar</a>
+                            <a href="{{ route('detalharEspecialidades.show', $especialidade->id) }}" class="btn btn-sm btn-info">Visualizar</a>
+                            <a href="{{ route('especialidades.edit', $especialidade->id) }}" class="btn btn-sm btn-warning">Editar</a>
                         </td>
                     </tr>
                 @empty

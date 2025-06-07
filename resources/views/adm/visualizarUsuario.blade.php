@@ -1,5 +1,5 @@
 <x-layoutadm>
-  teste
+
 
   @foreach($showUsuario as $imc)
   <tr>

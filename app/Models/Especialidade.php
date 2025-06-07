@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Especialidade extends Model
 {
+    protected $table = 'especialidades';
+    protected $primaryKey = 'id';
     protected $fillable = [
         'nome',
         'codigo',
@@ -13,4 +15,6 @@ class Especialidade extends Model
         'status',
         'observacoes',
     ];
+    public $timestamps = false;
 }
+
