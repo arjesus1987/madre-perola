@@ -18,7 +18,7 @@ class Fornecedor extends Model
         'telefone',
         'endereco',
         'status',
-        'idUsuario',
+        // 'idUsuario', Ainda não temos a autenticação implementada, então deixamos o idUsuario como null
     ];
 }
 

@@ -24,12 +24,12 @@ return new class extends Migration
 
             $table->primary('id_fornecedor');
 
-            $table->bigInteger('idUsuario')->unsigned();
+            // $table->bigInteger('idUsuario')->unsigned(); ainda não temos a autenticação implementada, então deixamos o idUsuario como null
 
-            $table->foreign('idUsuario')
-                ->references('idUsuario')
-                ->on('cadastro_usuario')
-                ->onDelete('cascade');
+            // $table->foreign('idUsuario')
+            //     ->references('idUsuario')
+            //     ->on('cadastro_usuario')
+            //     ->onDelete('cascade');
         });
     }
 

@@ -31,10 +31,9 @@ class CadastrarFornecedorHomeController extends Controller
             'telefone' => $request->telefone,
             'endereco' => $request->endereco,
             'status' => $request->status,
-            'idUsuario' => 1,
+            // 'idUsuario' => 1, Ainda não temos a autenticação implementada, então deixamos o idUsuario como null
         ]);
 
         return redirect()->back()->with('success', 'Fornecedor cadastrado com sucesso!');
     }
 }
-

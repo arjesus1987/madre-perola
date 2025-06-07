@@ -50,10 +50,16 @@ Route::get('/especialidades/{id}/editar', [CadastrarEspecialidadeController::cla
 Route::put('/especialidades/{id}', [CadastrarEspecialidadeController::class, 'update'])->name('especialidades.update');
 
 
-
 //Rotas Fornecedores
-Route::get('/cadastrarfornecedor', [CadastrarFornecedorHomeController::class, 'index'])->name('cfornecedor.index');
-Route::post('/cadastrarfornecedor', [CadastrarFornecedorHomeController::class, 'store'])->name('fornecedor.store');
+Route::get('/cadastrarfornecedor', [CadastrarFornecedorHomeController::class, 'index'])->name('cadastrofornecedor.index');
+Route::post('/cadastrarfornecedor', [CadastrarFornecedorHomeController::class, 'store'])->name('cadastrofornecedor.store');
+Route::get('/visualizarFornecedores', [VisualizarFornecedoresHomeController::class, 'index'])->name('visualizarFornecedores.index');
+Route::get('/detalharFornecedores/{id}', [VisualizarFornecedoresHomeController::class, 'show'])->name('detalharFornecedores.show');
+Route::get('/fornecedores/{id}/editar', [VisualizarFornecedoresHomeController::class, 'edit'])->name('fornecedores.edit');
+Route::put('/fornecedores/{id}', [VisualizarFornecedoresHomeController::class, 'update'])->name('fornecedores.update');
+
+
+
 
 
 

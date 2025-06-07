@@ -48,4 +48,6 @@ class CadastrarProdutoHomeController extends Controller
 
         return redirect('/cadastrarProduto')->with('success', 'Produto cadastrado com sucesso!');
     }
+
+    
 }
