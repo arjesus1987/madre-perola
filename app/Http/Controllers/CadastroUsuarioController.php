@@ -11,6 +11,11 @@ use Illuminate\Support\Facades\Hash;
 
 class CadastroUsuarioController extends Controller
 {
+  public function index()
+    {
+        return view('adm.cadastrousuario');
+    }
+
     public function create()
     {
         return view('adm.cadastrousuario');

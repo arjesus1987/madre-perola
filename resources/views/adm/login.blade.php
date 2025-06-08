@@ -17,14 +17,15 @@
       <img src="{{ Vite::asset('resources/asset/images/logo-horizontal.svg') }}" alt=login-Logo" class="logo">
     </div>
     <h2>Login do Sistema</h2>
-    <form>
+    <form method="post" action="{{ route('login.logar') }}">>
+      @csrf
       <div class="mb-3">
         <label for="usuario" class="form-label">Usuário</label>
-        <input type="text" class="form-control" id="usuario" placeholder="Digite seu nome de usuário" required />
+        <input type="email" name="email" class="form-control" id="usuario" placeholder="Digite seu nome de usuário" required />
       </div>
       <div class="mb-3">
         <label for="senha" class="form-label">Senha</label>
-        <input type="password" class="form-control" id="senha" placeholder="Digite sua senha" required />
+        <input type="password" name="password" class="form-control" id="senha" placeholder="Digite sua senha" required />
       </div>
       <div class="mb-3 form-check">
         <input type="checkbox" class="form-check-input" id="lembrar" />

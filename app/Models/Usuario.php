@@ -4,20 +4,34 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Usuario extends Model
+class Usuario extends Authenticatable
 {
     use HasFactory;
 
     protected $table = 'cadastro_usuario';
     protected $primaryKey = 'idUsuario';
     protected $fillable = [
-        'nome', 'cpf', 'rg', 'dt_nascimento', 'sexo',
-        'estado_civil', 'login', 'senha', 'tipo_usuario',
-        'status', 'observacao'
+        'nome',
+        'cpf',
+        'rg',
+        'dt_nascimento',
+        'sexo',
+        'estado_civil',
+        'login',
+        'senha',
+        'tipo_usuario',
+        'status',
+        'observacao'
     ];
 
     protected $hidden = ['senha'];
+
+    public function getAuthPassword()
+    {
+        return $this->senha;
+    }
 
     public function emails()
     {
@@ -36,6 +50,6 @@ class Usuario extends Model
 
     public function medico()
     {
-        return $this->hasOne(Medico::class, 'idUsuario', 'idUsuario');
+        return $this->hasMany(Medico::class, 'idUsuario', 'idUsuario');
     }
 }

@@ -82,7 +82,7 @@
               @endif
             </td>
             <td>
-              <a href="{{ route('detalharProdutos.show', $produto->id_produto) }}" class="btn btn-sm btn-info">Detalhar</a>
+              <a href="{{ route('detalharProdutos.show', $produto->id_produto) }}" class="btn btn-sm btn-info">Visualizar</a>
               <a href="{{ route('produtos.edit', $produto->id_produto) }}" class="btn btn-sm btn-warning">Editar</a>
             </td>
           </tr>

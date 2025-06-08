@@ -11,4 +11,9 @@ class Medico extends Model
 
     protected $table = 'medico';
     protected $fillable = ['crm', 'uf', 'idUsuario'];
+
+      public function usuario()
+    {
+        return $this->belongsTo(Usuario::class, 'idUsuario', 'idUsuario');
+    }
 }

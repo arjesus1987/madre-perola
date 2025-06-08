@@ -185,7 +185,7 @@
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-  <script>
+  {{-- <script>
     $(document).ready(function() {
       // Carrega as UFs nos selects de UF e CRM
       let estados = ['AC', 'AL', 'AP', 'AM', 'BA', 'CE', 'DF', 'ES', 'GO', 'MA', 'MT', 'MS', 'MG', 'PA', 'PB', 'PR', 'PE', 'PI', 'RJ', 'RN', 'RS', 'RO', 'RR', 'SC', 'SP', 'SE', 'TO'];
@@ -297,6 +297,216 @@
         });
       });
     });
-  </script>
+  </script> --}}
+
+  {{-- <script>
+    $(document).ready(function() {
+      let estados = ['AC', 'AL', 'AP', 'AM', 'BA', 'CE', 'DF', 'ES', 'GO', 'MA', 'MT', 'MS', 'MG', 'PA', 'PB', 'PR', 'PE', 'PI', 'RJ', 'RN', 'RS', 'RO', 'RR', 'SC', 'SP', 'SE', 'TO'];
+
+      function preencherUFs() {
+        let options = '<option value="">Selecione</option>';
+        estados.forEach(function(uf) {
+          options += `<option value="${uf}">${uf}</option>`;
+        });
+        $('#uf').html(options);
+        $('#crmUf').html(options);
+      }
+
+      preencherUFs();
+
+      $('#tipo_usuario').on('change', function() {
+        if ($(this).val() == '4') {
+          $('#crmSection').show();
+        } else {
+          $('#crmSection').hide();
+          $('#crmList').empty();
+          $('#hiddenCrmInputs').empty();
+        }
+      });
+
+      $('#addCrmBtn').on('click', function() {
+        let numero = $('#crmNumero').val().trim();
+        let uf = $('#crmUf').val();
+
+        if (!numero) {
+          alert('Informe o número do CRM.');
+          return;
+        }
+        if (!uf) {
+          alert('Informe a UF do CRM.');
+          return;
+        }
+
+        let li = `<li class="list-group-item d-flex justify-content-between align-items-center">
+          ${numero} - ${uf}
+          <button type="button" class="btn btn-danger btn-sm btnRemoveCrm">Remover</button>
+        </li>`;
+
+        $('#crmList').append(li);
+
+        $('#hiddenCrmInputs').append(`
+          <input type="hidden" name="crms[][numero]" value="${numero}">
+          <input type="hidden" name="crms[][uf]" value="${uf}">
+        `);
+
+        $('#crmNumero').val('');
+        $('#crmUf').val('');
+      });
+
+      $('#crmList').on('click', '.btnRemoveCrm', function() {
+        let index = $(this).parent().index();
+        $(this).parent().remove();
+        let inputs = $('#hiddenCrmInputs input');
+        inputs.eq(index * 2).remove();
+        inputs.eq(index * 2).remove();
+      });
+
+      $('#cpf').on('input', function() {
+        let v = this.value.replace(/\D/g, '');
+        v = v.replace(/(\d{3})(\d)/, '$1.$2');
+        v = v.replace(/(\d{3})(\d)/, '$1.$2');
+        v = v.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+        this.value = v;
+      });
+
+      $('#telefone').on('input', function() {
+        let v = this.value.replace(/\D/g, '');
+        v = v.replace(/(\d{2})(\d)/, '($1) $2');
+        v = v.replace(/(\d{4})(\d)/, '$1-$2');
+        this.value = v;
+      });
+
+      $('#celular').on('input', function() {
+        let v = this.value.replace(/\D/g, '');
+        v = v.replace(/(\d{2})(\d)/, '($1) $2');
+        v = v.replace(/(\d{5})(\d)/, '$1-$2');
+        this.value = v;
+      });
+
+      $('#cep').on('blur', function() {
+        let cep = $(this).val().replace(/\D/g, '');
+        if (cep.length !== 8) return;
+
+        $.getJSON(`https://viacep.com.br/ws/${cep}/json/`, function(data) {
+          if (!data.erro) {
+            $('#logradouro').val(data.logradouro);
+            $('#bairro').val(data.bairro);
+            $('#cidade').val(data.localidade);
+            $('#uf').val(data.uf);
+            $('#complemento').val(data.complemento);
+          }
+        });
+      });
+    });
+  </script> --}}
+
+  <script>
+  $(document).ready(function() {
+    let estados = ['AC', 'AL', 'AP', 'AM', 'BA', 'CE', 'DF', 'ES', 'GO', 'MA', 'MT', 'MS', 'MG', 'PA', 'PB', 'PR', 'PE', 'PI', 'RJ', 'RN', 'RS', 'RO', 'RR', 'SC', 'SP', 'SE', 'TO'];
+
+    function preencherUFs() {
+      let options = '<option value="">Selecione</option>';
+      estados.forEach(function(uf) {
+        options += `<option value="${uf}">${uf}</option>`;
+      });
+      $('#uf').html(options);
+      $('#crmUf').html(options);
+    }
+
+    preencherUFs();
+
+    let crmCount = 0;
+
+    $('#tipo_usuario').on('change', function() {
+      if ($(this).val() == '4') {
+        $('#crmSection').show();
+      } else {
+        $('#crmSection').hide();
+        $('#crmList').empty();
+        $('#hiddenCrmInputs').empty();
+        crmCount = 0;
+      }
+    });
+
+    $('#addCrmBtn').on('click', function() {
+      let numero = $('#crmNumero').val().trim();
+      let uf = $('#crmUf').val();
+
+      if (!numero) {
+        alert('Informe o número do CRM.');
+        return;
+      }
+      if (!uf) {
+        alert('Informe a UF do CRM.');
+        return;
+      }
+
+      let li = `<li class="list-group-item d-flex justify-content-between align-items-center">
+        ${numero} - ${uf}
+        <button type="button" class="btn btn-danger btn-sm btnRemoveCrm" data-index="${crmCount}">Remover</button>
+      </li>`;
+
+      $('#crmList').append(li);
+
+      $('#hiddenCrmInputs').append(`
+        <div class="crm-inputs" data-index="${crmCount}">
+          <input type="hidden" name="crms[${crmCount}][numero]" value="${numero}">
+          <input type="hidden" name="crms[${crmCount}][uf]" value="${uf}">
+        </div>
+      `);
+
+      crmCount++;
+
+      $('#crmNumero').val('');
+      $('#crmUf').val('');
+    });
+
+    $('#crmList').on('click', '.btnRemoveCrm', function() {
+      let index = $(this).data('index');
+      $(this).parent().remove();
+      $(`#hiddenCrmInputs .crm-inputs[data-index="${index}"]`).remove();
+    });
+
+    $('#cpf').on('input', function() {
+      let v = this.value.replace(/\D/g, '');
+      v = v.replace(/(\d{3})(\d)/, '$1.$2');
+      v = v.replace(/(\d{3})(\d)/, '$1.$2');
+      v = v.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+      this.value = v;
+    });
+
+    $('#telefone').on('input', function() {
+      let v = this.value.replace(/\D/g, '');
+      v = v.replace(/(\d{2})(\d)/, '($1) $2');
+      v = v.replace(/(\d{4})(\d)/, '$1-$2');
+      this.value = v;
+    });
+
+    $('#celular').on('input', function() {
+      let v = this.value.replace(/\D/g, '');
+      v = v.replace(/(\d{2})(\d)/, '($1) $2');
+      v = v.replace(/(\d{5})(\d)/, '$1-$2');
+      this.value = v;
+    });
+
+    $('#cep').on('blur', function() {
+      let cep = $(this).val().replace(/\D/g, '');
+      if (cep.length !== 8) return;
+
+      $.getJSON(`https://viacep.com.br/ws/${cep}/json/`, function(data) {
+        if (!data.erro) {
+          $('#logradouro').val(data.logradouro);
+          $('#bairro').val(data.bairro);
+          $('#cidade').val(data.localidade);
+          $('#uf').val(data.uf);
+          $('#complemento').val(data.complemento);
+        }
+      });
+    });
+  });
+</script>
+
+
+  
 </x-layoutadm>
 

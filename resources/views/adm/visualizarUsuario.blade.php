@@ -1,13 +1,13 @@
 <x-layoutadm>
 
 
-  @foreach($showUsuario as $imc)
+  {{-- @foreach($showUsuario as $imc)
   <tr>
     <th scope="row">{{$imc->idUsuario}}</th>
     <td>{{$imc->nome}}</td>
   </tr>
 
-  @endforeach
+  @endforeach --}}
 
   <div class="container my-5" id="usuarios">
     <h1 class="mb-4">Visualizar Usuários</h1>
@@ -33,6 +33,7 @@
             <option value="admin">Administrador</option>
             <option value="gerente">Gerente</option>
             <option value="usuario">Usuário</option>
+            <option value="medico">Médico</option>
           </select>
         </div>
 
@@ -70,12 +71,24 @@
           <tr>
             <td>{{$usuario->nome}}</td>
             <td>{{$usuario->cpf}}</td>
-            <td>joao@example.com</td>
+            <td>{{$usuario->email}}</td>
+           
+            {{-- // Mapeamento dos tipos de usuário --}}
+           @php
+    $tiposUsuario = [
+        1 => 'Administrador',
+        2 => 'Usuário Comum',
+        3 => 'Moderador',
+        4 => 'Médico',
+    ];
+@endphp
+
+            <td>{{$tiposUsuario[$usuario->tipo_usuario] ?? 'Desconhecido'}}</td>
+
             <td>{{$usuario->tipo_usuario}}</td>
-            <td><span class="badge bg-success">{{$usuario->status}}</span></td>
             <td class="text-center">
-              <a href="/usuarios/1" class="btn btn-sm btn-info">Visualizar</a>
-              <a href="/usuarios/1/edit" class="btn btn-sm btn-warning">Editar</a>
+              <a href="{{ route('detalharUsuarios.show', $usuario->idUsuario) }}" class="btn btn-sm btn-info">Visualizar</a>
+              <a href="{{ route('usuarios.edit', $usuario->idUsuario) }}" class="btn btn-sm btn-warning">Editar</a>
             </td>
           </tr>
           @endforeach
