@@ -21,7 +21,7 @@
       @csrf
       <div class="mb-3">
         <label for="usuario" class="form-label">Usuário</label>
-        <input type="email" name="email" class="form-control" id="usuario" placeholder="Digite seu nome de usuário" required />
+        <input type="text" name="login" class="form-control" id="usuario" placeholder="Digite seu nome de usuário" required />
       </div>
       <div class="mb-3">
         <label for="senha" class="form-label">Senha</label>

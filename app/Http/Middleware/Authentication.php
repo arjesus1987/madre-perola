@@ -19,7 +19,8 @@ class Authentication
     {
         if (!Auth::check()) {
 
-            throw new AuthenticationException();
+            return redirect()->route('login'); // <- Redireciona corretamente
+            // throw new AuthenticationException();
         }
 
         return $next($request);

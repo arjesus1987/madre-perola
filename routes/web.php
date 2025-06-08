@@ -53,10 +53,11 @@ Route::get('/logout', [LoginController::class, 'destroy'])->name('login.logout')
 
 // Rotas de autenticação, tudo que estiver dentro desta função de rota só será acessado após a autenticação 27-05
 // Tem que inserir a importação use App\Http\Middleware\Authentication;
-Route::middleware(Authentication::class)->group(function () {
+Route::middleware('auth.custom')->group(function () {
+
+    Route::get('/home', [LoginController::class, 'indexHome'])->name('adm.home');
 
     //Rota ADM Home
-    Route::get('/home', [LoginController::class, 'indexHome'])->name('adm.home');
 
     //Rotas Fornecedores
     Route::get('/cadastrarfornecedor', [CadastrarFornecedorHomeController::class, 'index'])->name('cadastrofornecedor.index');
@@ -87,7 +88,7 @@ Route::middleware(Authentication::class)->group(function () {
 Route::get('/', [HomeSiteController::class, "index"]);
 
 
-Route::get('/home', [HomeController::class, "index"])->name('admhome');
+// Route::get('/home', [HomeController::class, "index"])->name('admhome');
 
 Route::get('/cadastrousuario', [CadastroHomeController::class, "index"]);
 
