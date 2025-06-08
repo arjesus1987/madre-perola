@@ -45,6 +45,8 @@ class VisualizarFornecedoresHomeController extends Controller
         return view('adm.editarFornecedor', compact('fornecedor'));
     }
 
+
+
     public function update(Request $request, $id)
     {
         // $request->validate([
@@ -54,6 +56,6 @@ class VisualizarFornecedoresHomeController extends Controller
         $fornecedor = Fornecedor::findOrFail($id);
         $fornecedor->update($request->all());
 
-        return redirect()->route('visualizarFornecedores.index')->with('success', 'Fornecedor atualizado com sucesso!');
+        return redirect()->route('detalharFornecedores.show', $fornecedor->id_fornecedor)->with('success', 'Fornecedor atualizado com sucesso!');
     }
 }

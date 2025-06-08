@@ -2,6 +2,7 @@
 <div class="container my-5" id="especialidades">
     <h1 class="mb-4">Visualizar Especialidades</h1>
 
+    
     <!-- Filtros -->
     <form class="mb-4 border rounded p-3" method="GET" action="{{ route('visualizarEspecialidades.index') }}">
         <h5 class="mb-3">Filtros</h5>

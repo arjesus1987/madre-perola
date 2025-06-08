@@ -35,5 +35,6 @@ class CadastrarFornecedorHomeController extends Controller
         ]);
 
         return redirect()->route('cadastrofornecedor.index')->with('success', 'Fornecedor cadastrado com sucesso!');
+        
     }
 }

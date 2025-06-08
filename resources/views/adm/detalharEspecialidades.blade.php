@@ -1,7 +1,9 @@
 <x-layoutadm>
     <div class="main-content" id="especialidade">
         <h1>Detalhes da Especialidade Médica</h1>
-
+@if(session('success'))
+            <div class="alert alert-success">{{ session('success') }}</div>
+        @endif
         <fieldset class="border p-3 mb-4">
             <legend class="w-auto px-2">Informações da Especialidade</legend>
             <div class="row">

@@ -2,9 +2,7 @@
     <div class="main-content" id="especialidade">
         <h1>Editar Especialidade Médica</h1>
 
-        @if(session('success'))
-            <div class="alert alert-success">{{ session('success') }}</div>
-        @endif
+         
 
         <form action="{{ route('especialidades.update', $especialidade->id) }}" method="POST">
             @csrf

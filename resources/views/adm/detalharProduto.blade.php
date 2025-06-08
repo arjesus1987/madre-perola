@@ -1,7 +1,9 @@
 <x-layoutadm>
   <div class="container mt-5">
     <h2 class="mb-4">Detalhes do Produto</h2>
-
+@if(session('success'))
+      <div class="alert alert-success">{{ session('success') }}</div>
+    @endif 
     <div class="card">
       <div class="card-body">
 
@@ -52,11 +54,13 @@
             {{ $produto->status == 1 ? 'Ativo' : 'Inativo' }}
           </p>
         </div>
-<div class="mb-3 d-flex justify-content-end">
-        <a href="{{ route('visualizarProdutos.index') }}" class="btn btn-secondary me-2">Voltar</a>
-        <a href="{{ route('produtos.edit', $produto->id_produto) }}" class="btn btn-sm btn-warning">Editar</a>
-</div
-    
+        
+        
+      </div>
+    </div>
+    <div class="mb-3 d-flex justify-content-end mt-4">
+            <a href="{{ route('visualizarProdutos.index') }}" class="btn btn-secondary me-2">Voltar</a>
+            <a href="{{ route('produtos.edit', $produto->id_produto) }}" class="btn btn-sm btn-warning me-2">Editar</a>
     </div>
   </div>
 </x-layoutadm>

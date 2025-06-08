@@ -49,27 +49,25 @@ class CadastrarEspecialidadeController extends Controller
         return view('adm.editarEspecialidade', compact('especialidade'));
     }
 
-public function update(Request $request, $id)
-{
-    $request->validate([
-        'nome' => 'required|string|max:255',
-        'descricao' => 'nullable|string',
-        'status' => 'required|in:ativo,inativo',
-        'observacoes' => 'nullable|string',
-    ]);
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'nome' => 'required|string|max:255',
+            'descricao' => 'nullable|string',
+            'status' => 'required|in:ativo,inativo',
+            'observacoes' => 'nullable|string',
+        ]);
 
-    $especialidade = Especialidade::findOrFail($id);
+        $especialidade = Especialidade::findOrFail($id);
 
-    $especialidade->update([
-        'nome' => $request->nome,
-        'descricao' => $request->descricao,
-        'status' => $request->status,
-        'observacoes' => $request->observacoes,
-    ]);
+        $especialidade->update([
+            'nome' => $request->nome,
+            'descricao' => $request->descricao,
+            'status' => $request->status,
+            'observacoes' => $request->observacoes,
+        ]);
 
-    return redirect()->route('visualizarEspecialidades.index')
-                     ->with('success', 'Especialidade atualizada com sucesso!');
-}
-
-
+        return redirect()->route('detalharEspecialidades.show', $especialidade->id)
+            ->with('success', 'Especialidade atualizada com sucesso!');
+    }
 }

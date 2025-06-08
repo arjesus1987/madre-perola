@@ -7,13 +7,13 @@
         {{ session('success') }}
       </div>
     @endif
-
     <!-- Formulário de busca -->
-    <form action="{{ route('visualizarProdutos.index') }}" method="GET" class="row g-3 mb-4">
+    <form action="{{ route('visualizarProdutos.index') }}" method="GET" class="  mb-4 border rounded p-3">
+      <div class="row">
       <div class="col-md-4">
         <input type="text" name="nome" class="form-control" placeholder="Nome do produto" value="{{ request('nome') }}">
       </div>
-      <div class="col-md-3">
+      <div class="col-md-4">
         <select name="categoria" class="form-select">
           <option value="">Todas as categorias</option>
           <option value="medicamento" {{ request('categoria') == 'medicamento' ? 'selected' : '' }}>Medicamento</option>
@@ -21,15 +21,18 @@
           <option value="suplemento" {{ request('categoria') == 'suplemento' ? 'selected' : '' }}>Suplemento</option>
         </select>
       </div>
-      <div class="col-md-3">
+      <div class="col-md-4">
         <select name="status" class="form-select">
           <option value="">Todos os status</option>
           <option value="1" {{ request('status') === '1' ? 'selected' : '' }}>Ativo</option>
           <option value="0" {{ request('status') === '0' ? 'selected' : '' }}>Inativo</option>
         </select>
       </div>
-      <div class="col-md-2">
-        <button type="submit" class="btn btn-primary w-100">Buscar</button>
+       </div>
+      
+      <div class="d-flex justify-content-end mt-3">
+        <button type="submit" class="btn btn-primary me-2">Filtrar</button>
+        <a href="{{ route('visualizarFornecedores.index') }}" class="btn btn-secondary">Limpar</a>
       </div>
     </form>
 
