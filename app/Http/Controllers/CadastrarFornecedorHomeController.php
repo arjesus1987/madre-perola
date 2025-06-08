@@ -34,6 +34,6 @@ class CadastrarFornecedorHomeController extends Controller
             // 'idUsuario' => 1, Ainda não temos a autenticação implementada, então deixamos o idUsuario como null
         ]);
 
-        return redirect()->back()->with('success', 'Fornecedor cadastrado com sucesso!');
+        return redirect()->route('cadastrofornecedor.index')->with('success', 'Fornecedor cadastrado com sucesso!');
     }
 }

@@ -13,7 +13,18 @@ class Produto extends Model
     public $timestamps = false; // se não tiver created_at/updated_at
 
     protected $fillable = [
-        'nome_produto', 'descricao', 'preco', 'quantidade',
-        'categoria', 'id_fornecedor', 'imagem', 'status'
+        'nome_produto',
+        'descricao',
+        'preco',
+        'quantidade',
+        'categoria',
+        'id_fornecedor',
+        'imagem',
+        'status'
     ];
+
+    public function fornecedor()
+    {
+        return $this->belongsTo(Fornecedor::class, 'id_fornecedor', 'id_fornecedor');
+    }
 }

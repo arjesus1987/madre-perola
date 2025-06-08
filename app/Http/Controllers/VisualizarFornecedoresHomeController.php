@@ -9,6 +9,7 @@ class VisualizarFornecedoresHomeController extends Controller
 {
     public function index(Request $request)
     {
+
         $nome = $request->input('nome');
         $cnpj = $request->input('cnpj');
         $status = $request->input('status');

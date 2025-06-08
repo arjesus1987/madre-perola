@@ -64,10 +64,11 @@
                 </div>
             </fieldset>
 
-            <div class="d-flex justify-content-end">
+             <div class="d-flex justify-content-end">
                 <button type="reset" class="btn btn-secondary me-2">Limpar</button>
                 <button type="submit" class="btn btn-primary">Salvar</button>
             </div>
+
         </form>
     </div>
 </x-layoutadm>

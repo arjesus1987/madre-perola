@@ -6,18 +6,18 @@
             <legend class="w-auto px-2">Informações da Especialidade</legend>
             <div class="row">
                 <div class="col-md-8 mb-3">
-                    <label class="form-label">Nome da Especialidade</label>
-                    <input type="text" class="form-control" value="{{ $especialidade->nome }}" readonly>
+                    <label class="form-label"><strong>Nome da Especialidade:</strong></label>
+                    <p class="form-control-plaintext">{{ $especialidade->nome }}</p>
                 </div>
 
                 <div class="col-md-4 mb-3">
-                    <label class="form-label">Código</label>
-                    <input type="number" class="form-control" value="{{ $especialidade->codigo }}" readonly>
+                    <label class="form-label"><strong>Código:</strong></label>
+                    <p class="form-control-plaintext">{{ $especialidade->codigo }}</p>
                 </div>
 
                 <div class="col-md-12 mb-3">
-                    <label class="form-label">Descrição</label>
-                    <textarea class="form-control" rows="3" readonly>{{ $especialidade->descricao }}</textarea>
+                    <label class="form-label"><strong>Descrição:</strong></label>
+                    <p class="form-control-plaintext">{{ $especialidade->descricao }}</p>
                 </div>
             </div>
         </fieldset>
@@ -26,19 +26,20 @@
             <legend class="w-auto px-2">Configurações</legend>
             <div class="row">
                 <div class="col-md-4 mb-3">
-                    <label class="form-label">Status</label>
-                    <input type="text" class="form-control" value="{{ ucfirst($especialidade->status) }}" readonly>
+                    <label class="form-label"><strong>Status:</strong></label>
+                    <p class="form-control-plaintext">{{ ucfirst($especialidade->status) }}</p>
                 </div>
 
                 <div class="col-md-8 mb-3">
-                    <label class="form-label">Observações</label>
-                    <textarea class="form-control" rows="2" readonly>{{ $especialidade->observacoes }}</textarea>
+                    <label class="form-label"><strong>Observações:</strong></label>
+                    <p class="form-control-plaintext">{{ $especialidade->observacoes }}</p>
                 </div>
             </div>
         </fieldset>
 
         <div class="d-flex justify-content-end">
-            <a href="{{ route('visualizarEspecialidades.index') }}" class="btn btn-secondary">Voltar</a>
+            <a href="{{ route('visualizarEspecialidades.index') }}" class="btn btn-secondary me-2">Voltar</a>
+            <a href="{{ route('especialidades.edit', $especialidade->id) }}" class="btn btn-sm btn-warning">Editar</a>
         </div>
     </div>
 </x-layoutadm>

@@ -1,98 +1,136 @@
 <x-layoutadm>
- <div class="container mt-5">
+  <div class="container mt-5">
     <h2 class="mb-4">Produtos Cadastrados</h2>
 
-    <!-- Filtros -->
-    <form method="GET" action="/produtos" class="mb-4 border p-3 rounded">
-      <h5 class="mb-3">Filtros</h5>
-      <div class="row g-3">
-        <div class="col-md-3">
-          <label class="form-label">Nome</label>
-          <input type="text" name="nome" class="form-control" value="{{ request('nome') }}">
-        </div>
-        <div class="col-md-3">
-          <label class="form-label">Categoria</label>
-          <select name="categoria" class="form-select">
-            <option value="">Todas</option>
-            <option value="medicamento" {{ request('categoria') == 'medicamento' ? 'selected' : '' }}>Medicamento</option>
-            <option value="equipamento" {{ request('categoria') == 'equipamento' ? 'selected' : '' }}>Equipamento</option>
-            <option value="suplemento" {{ request('categoria') == 'suplemento' ? 'selected' : '' }}>Suplemento</option>
-          </select>
-        </div>
-        <div class="col-md-3">
-          <label class="form-label">Fornecedor</label>
-          <select name="fornecedor_id" class="form-select">
-            <option value="">Todos</option>
-            @foreach ($fornecedores as $fornecedor)
-              <option value="{{ $fornecedor->id }}" {{ request('fornecedor_id') == $fornecedor->id ? 'selected' : '' }}>
-                {{ $fornecedor->nome }}
-              </option>
-            @endforeach
-          </select>
-        </div>
-        <div class="col-md-3">
-          <label class="form-label">Status</label>
-          <select name="status" class="form-select">
-            <option value="">Todos</option>
-            <option value="ativo" {{ request('status') == 'ativo' ? 'selected' : '' }}>Ativo</option>
-            <option value="inativo" {{ request('status') == 'inativo' ? 'selected' : '' }}>Inativo</option>
-          </select>
-        </div>
+    @if (session('success'))
+      <div class="alert alert-success">
+        {{ session('success') }}
       </div>
-      <div class="d-flex justify-content-end mt-3">
-        <button type="submit" class="btn btn-primary me-2">Filtrar</button>
-        <a href="/produtos" class="btn btn-secondary">Limpar</a>
+    @endif
+
+    <!-- Formulário de busca -->
+    <form action="{{ route('visualizarProdutos.index') }}" method="GET" class="row g-3 mb-4">
+      <div class="col-md-4">
+        <input type="text" name="nome" class="form-control" placeholder="Nome do produto" value="{{ request('nome') }}">
+      </div>
+      <div class="col-md-3">
+        <select name="categoria" class="form-select">
+          <option value="">Todas as categorias</option>
+          <option value="medicamento" {{ request('categoria') == 'medicamento' ? 'selected' : '' }}>Medicamento</option>
+          <option value="equipamento" {{ request('categoria') == 'equipamento' ? 'selected' : '' }}>Equipamento</option>
+          <option value="suplemento" {{ request('categoria') == 'suplemento' ? 'selected' : '' }}>Suplemento</option>
+        </select>
+      </div>
+      <div class="col-md-3">
+        <select name="status" class="form-select">
+          <option value="">Todos os status</option>
+          <option value="1" {{ request('status') === '1' ? 'selected' : '' }}>Ativo</option>
+          <option value="0" {{ request('status') === '0' ? 'selected' : '' }}>Inativo</option>
+        </select>
+      </div>
+      <div class="col-md-2">
+        <button type="submit" class="btn btn-primary w-100">Buscar</button>
       </div>
     </form>
 
-    <!-- Grid de Produtos -->
-    <div class="table-responsive">
-      <table class="table table-bordered table-hover">
-        <thead class="table-light">
+    <!-- Tabela de produtos -->
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Imagem</th>
+          <th>Nome</th>
+          <th>Categoria</th>
+          <th>Preço</th>
+          <th>Estoque</th>
+          <th>Status</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        @forelse ($produtos as $produto)
           <tr>
-            <th>Nome</th>
-            <th>Categoria</th>
-            <th>Fornecedor</th>
-            <th>Preço</th>
-            <th>Quantidade</th>
-            <th>Status</th>
-            <th class="text-center">Ações</th>
+            <td>{{ $produto->id_produto }}</td>
+            <td>
+  @if ($produto->imagem)
+   <button 
+  type="button" 
+  class="btn btn-link p-0" 
+  data-bs-toggle="modal" 
+  data-bs-target="#imagemModal" 
+  data-img-src="{{ asset('storage/' . $produto->imagem) }}" 
+  title="Visualizar imagem"
+>
+  🖼️
+</button>
+  @else
+    <span class="text-muted">Sem imagem</span>
+  @endif
+</td>
+            <td>{{ $produto->nome_produto }}</td>
+            <td>{{ $produto->categoria }}</td>
+            <td>R$ {{ number_format($produto->preco, 2, ',', '.') }}</td>
+            <td>{{ $produto->quantidade }}</td>
+            <td>
+              @if ($produto->status)
+                <span class="badge bg-success">Ativo</span>
+              @else
+                <span class="badge bg-secondary">Inativo</span>
+              @endif
+            </td>
+            <td>
+              <a href="{{ route('detalharProdutos.show', $produto->id_produto) }}" class="btn btn-sm btn-info">Detalhar</a>
+              <a href="{{ route('produtos.edit', $produto->id_produto) }}" class="btn btn-sm btn-warning">Editar</a>
+            </td>
           </tr>
-        </thead>
-        <tbody>
-          @forelse ($produtos as $produto)
-            <tr>
-              <td>{{ $produto->nome }}</td>
-              <td>{{ ucfirst($produto->categoria) }}</td>
-              <td>{{ $produto->fornecedor->nome ?? '-' }}</td>
-              <td>R$ {{ number_format($produto->preco, 2, ',', '.') }}</td>
-              <td>{{ $produto->quantidade }}</td>
-              <td>
-                <span class="badge {{ $produto->status == 'ativo' ? 'bg-success' : 'bg-secondary' }}">
-                  {{ ucfirst($produto->status) }}
-                </span>
-              </td>
-              <td class="text-center">
-                <a href="{{ route('produtos.edit', $produto->id) }}" class="btn btn-sm btn-warning">Editar</a>
-                <form action="{{ route('produtos.destroy', $produto->id) }}" method="POST" class="d-inline">
-                  @csrf
-                  @method('DELETE')
-                  <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Tem certeza que deseja excluir?')">Excluir</button>
-                </form>
-              </td>
-            </tr>
-          @empty
-            <tr>
-              <td colspan="7" class="text-center">Nenhum produto encontrado.</td>
-            </tr>
-          @endforelse
-        </tbody>
-      </table>
-    </div>
+        @empty
+          <tr>
+            <td colspan="8" class="text-center">Nenhum produto cadastrado.</td>
+          </tr>
+        @endforelse
+      </tbody>
+    </table>
 
-    <!-- Paginação -->
-    <div class="d-flex justify-content-center mt-4">
-      {{ $produtos->appends(request()->query())->links() }}
+    <!-- Paginação (se estiver usando paginate()) -->
+    <div class="mt-3">
+      {{ $produtos->withQueryString()->links() }}
     </div>
   </div>
+
+  <div class="modal fade" id="imagemModal" tabindex="-1" aria-labelledby="imagemModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="imagemModalLabel">Visualização da Imagem</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+      </div>
+      <div class="modal-body text-center">
+        <img id="imagemModalSrc" src="" alt="Imagem ampliada" style="max-width: 100%; height: auto;">
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var imagemModal = document.getElementById('imagemModal');
+    imagemModal.addEventListener('show.bs.modal', function (event) {
+      var button = event.relatedTarget; // botão que acionou o modal
+      var imgSrc = button.getAttribute('data-img-src'); // pega a url da imagem
+      var modalImg = document.getElementById('imagemModalSrc');
+      modalImg.src = imgSrc;
+    });
+  });
+</script>
+
+<style>
+  .modal-img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+</style>
+
 </x-layoutadm>

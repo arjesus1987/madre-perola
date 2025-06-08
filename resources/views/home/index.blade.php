@@ -172,7 +172,7 @@
   </div>
 </section>
 <!-- PERGUNTAS FREQUENTES -->
-<section id="faq" class="py-5 bg-claro">
+{{-- <section id="faq" class="py-5 bg-claro">
   <div class="container">
     <h2 class="text-center mb-4">Perguntas Frequentes</h2>
 
@@ -236,7 +236,7 @@
 
     </div>
   </div>
-</section>
+</section> --}}
 
 
 

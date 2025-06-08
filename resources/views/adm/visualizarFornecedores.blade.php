@@ -51,9 +51,10 @@
             <td>{{ $fornecedor->email }}</td>
             <td>{{ $fornecedor->telefone }}</td>
             <td>
-              <span class="badge {{ $fornecedor->status == 'ativo' ? 'bg-success' : 'bg-secondary' }}">
-                {{ ucfirst($fornecedor->status) }}
+              <span class="badge {{ $fornecedor->status == 1 ? 'bg-success' : 'bg-secondary' }}">
+               {{ $fornecedor->status == 1 ? 'Ativo' : 'Inativo' }}
               </span>
+
             </td>
             <td class="text-center">
               <a href="{{ route('detalharFornecedores.show', $fornecedor->id_fornecedor) }}" class="btn btn-sm btn-info">Visualizar</a>

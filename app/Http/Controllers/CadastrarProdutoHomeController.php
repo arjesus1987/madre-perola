@@ -4,19 +4,30 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Produto;  // Model do produto
+use App\Models\Fornecedor; // Model do fornecedor
 
 
 class CadastrarProdutoHomeController extends Controller
 {
-   
 
-   public function index()
+
+    public function index()
     {
-        return view('adm.cadastrarProduto');
+        $fornecedores = Fornecedor::all();
+        return view('adm.cadastrarProduto', compact('fornecedores'));
     }
 
     public function store(Request $request)
     {
+        // dd($request->all());
+        $precoBr = $request->input('preco');
+        $preco = str_replace(['R$', ' ', '.'], '', $precoBr); // remove R$, espaço, e ponto separador de milhar
+        $preco = str_replace(',', '.', $preco); // converte vírgula decimal em ponto
+
+        $request->merge([
+            'preco' => $preco
+        ]);
+
         $request->validate([
             'nome' => 'required|string|max:255',
             'descricao' => 'nullable|string',

@@ -33,8 +33,16 @@ Route::get('/usuario/create', [CadastroUsuarioController::class, 'create'])->nam
 Route::post('/usuario/store', [CadastroUsuarioController::class, 'store'])->name('usuario.store');
 
 // Rotas Cadastro produto
-Route::post('/cadastrarProduto', [CadastrarProdutoHomeController::class, 'store']);
-Route::get('/cadastrarProduto', [CadastrarProdutoHomeController::class, 'index']);
+Route::get('/cadastrarProduto', [CadastrarProdutoHomeController::class, 'index'])->name('cadastrarProduto.index');
+Route::post('/cadastrarProduto', [CadastrarProdutoHomeController::class, 'store'])->name('cadastrarProduto.store');
+Route::get('/visualizarProdutos', [VisualizarProdutosHomeController::class, 'index'])->name('visualizarProdutos.index');
+Route::get('/detalharProdutos/{id}', [VisualizarProdutosHomeController::class, 'show'])->name('detalharProdutos.show');
+// Route::get('/produtos/{id}/editar', [CadastrarProdutoHomeController::class, 'edit'])->name('produtos.edit');
+// Route::put('/produtos/{id}', [CadastrarProdutoHomeController::class, 'update'])->name('produtos.update');
+Route::get('/produtos/{id}/edit', [VisualizarProdutosHomeController::class, 'edit'])->name('produtos.edit');
+Route::put('/produtos/{id}', [VisualizarProdutosHomeController::class, 'update'])->name('produtos.update');
+
+
 
 //Rotas Agendas
 Route::get('/cadastroAgenda', [CadastroAgendaHomeController::class, 'index'])->name('agendas.index');
@@ -80,5 +88,14 @@ Route::post('/cadastrousuario', [CadastroUsuarioController::class, 'store']);
 
 
 Route::get('/experiencias', function () {
-    return view('experiencias');
+    return view('home.experiencias');
+});
+
+Route::get('/catalogo', function () {
+    return view('home.catalogo');
+});
+
+
+Route::get('/teste', function () {
+    return view('especialidades.tricologia');
 });

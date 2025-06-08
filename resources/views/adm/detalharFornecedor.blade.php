@@ -33,7 +33,8 @@
         <input type="text" class="form-control" value="{{ $fornecedor->status ? 'Ativo' : 'Inativo' }}" readonly>
       </div>
 <div class="d-flex justify-content-end">
-  <a href="{{ route('visualizarFornecedores.index') }}" class="btn btn-secondary ">Voltar</a>
+  <a href="{{ route('visualizarFornecedores.index') }}" class="btn btn-secondary me-2">Voltar</a>
+  <a href="{{ route('fornecedores.edit', $fornecedor->id_fornecedor) }}" class="btn btn-sm btn-warning">Editar</a>
 </div>
   
     </form>

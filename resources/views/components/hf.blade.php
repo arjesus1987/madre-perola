@@ -15,10 +15,10 @@
             <img src="{{ Vite::asset('resources/asset/images/logo-horizontal 1.svg') }}" alt="Logo" class="logo-footer"> 
             <nav>
                 <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Experiências</a></li>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/experiencias">Experiências</a></li>
                     <li><a href="#">Especialidades</a></li>
-                    <li><a href="#">Catálogo</a></li>
+                    <li><a href="/catalogo">Catálogo</a></li>
                     <li><a href="#">Agendamento</a></li>
                 </ul>
             </nav>

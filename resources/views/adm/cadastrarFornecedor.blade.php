@@ -2,15 +2,9 @@
   <div class="container mt-5">
     <h2 class="mb-4">Cadastro de Fornecedor</h2>
 
-    @if ($errors->any())
-      <div class="alert alert-danger">
-        <ul>
-          @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
-          @endforeach
-        </ul>
-      </div>
-    @endif  
+     @if(session('success'))
+            <div class="alert alert-success">{{ session('success') }}</div>
+        @endif 
 
     <form action="{{ url('/cadastrarfornecedor') }}" method="POST" enctype="multipart/form-data">
       @csrf
@@ -49,10 +43,12 @@
         </select>
       </div>
 
-      <div class="d-flex justify-content-between">
-        <button type="submit" class="btn btn-primary">Cadastrar</button>
-        <a href="/fornecedores" class="btn btn-secondary">Voltar</a>
-      </div>
+
+      <div class="d-flex justify-content-end">
+                <button type="reset" class="btn btn-secondary me-2">Limpar</button>
+                <button type="submit" class="btn btn-primary">Salvar</button>
+            </div>
+
     </form>
   </div>
 
