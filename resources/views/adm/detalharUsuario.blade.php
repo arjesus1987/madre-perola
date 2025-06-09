@@ -30,10 +30,10 @@
       <legend class="w-auto px-2">Contato</legend>
       <div class="row">
         <div class="col-md-6 mb-3">
-          <strong>E-mail:</strong> {{ $usuario->email }}
+          <strong>E-mail:</strong> {{ $usuario->emails->email }}
         </div>
         <div class="col-md-3 mb-3">
-          <strong>Telefone:</strong> {{ $usuario->telefone }}
+          <strong>Telefone:</strong> {{ $usuario->telefones->telefone }}
         </div>
         <div class="col-md-3 mb-3">
           <strong>Celular:</strong> {{ $usuario->celular }}
@@ -45,25 +45,25 @@
       <legend class="w-auto px-2">Endereço</legend>
       <div class="row">
         <div class="col-md-3 mb-3">
-          <strong>CEP:</strong> {{ $usuario->cep }}
+          <strong>CEP:</strong> {{ $usuario->enderecos->cep }}
         </div>
         <div class="col-md-7 mb-3">
-          <strong>Logradouro:</strong> {{ $usuario->logradouro }}
+          <strong>Logradouro:</strong> {{ $usuario->enderecos->logradouro }}
         </div>
         <div class="col-md-2 mb-3">
-          <strong>Número:</strong> {{ $usuario->numero }}
+          <strong>Número:</strong> {{ $usuario->enderecos->numero }}
         </div>
         <div class="col-md-4 mb-3">
-          <strong>Bairro:</strong> {{ $usuario->bairro }}
+          <strong>Bairro:</strong> {{ $usuario->enderecos->bairro }}
         </div>
         <div class="col-md-4 mb-3">
-          <strong>Cidade:</strong> {{ $usuario->cidade }}
+          <strong>Cidade:</strong> {{ $usuario->enderecos->cidade }}
         </div>
         <div class="col-md-4 mb-3">
-          <strong>UF:</strong> {{ $usuario->uf }}
+          <strong>UF:</strong> {{ $usuario->enderecos->uf }}
         </div>
         <div class="col-md-12 mb-3">
-          <strong>Complemento:</strong> {{ $usuario->complemento }}
+          <strong>Complemento:</strong> {{ $usuario->enderecos->complemento }}
         </div>
       </div>
     </fieldset>

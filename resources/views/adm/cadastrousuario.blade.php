@@ -10,7 +10,8 @@
   @endif  
   <div class="main-content" id="usuario">
     <h1>Cadastro de Usuário</h1>
-    <form action="{{ url('/cadastrousuario') }}" method="POST">
+    {{-- <form action="{{ url('/cadastrousuario') }}" method="POST"> --}}
+      <form action="{{ route('usuario.create') }}" method="POST">
       @csrf
       <fieldset class="border p-3 mb-4">
         <legend class="w-auto px-2">Dados Pessoais</legend>

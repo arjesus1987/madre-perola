@@ -13,7 +13,7 @@
     <h1 class="mb-4">Visualizar Usuários</h1>
 
     <!-- Filtros -->
-    <form class="mb-4 border rounded p-3" method="GET" action="/visualizarUsuarios">
+    <form class="mb-4 border rounded p-3" method="GET" action="{{ route('visualizarUsuarios.index') }}">
       <h5 class="mb-3">Filtros</h5>
       <div class="row g-3">
         <div class="col-md-4">
@@ -71,7 +71,7 @@
           <tr>
             <td>{{$usuario->nome}}</td>
             <td>{{$usuario->cpf}}</td>
-            <td>{{$usuario->email}}</td>
+            <td>{{$usuario->emails->email}}</td>
            
             {{-- // Mapeamento dos tipos de usuário --}}
            @php
@@ -85,7 +85,14 @@
 
             <td>{{$tiposUsuario[$usuario->tipo_usuario] ?? 'Desconhecido'}}</td>
 
-            <td>{{$usuario->tipo_usuario}}</td>
+            
+            <td>
+              @if ($usuario->status)
+                <span class="badge bg-success">Ativo</span>
+              @else
+                <span class="badge bg-secondary">Inativo</span>
+              @endif
+            </td>
             <td class="text-center">
               <a href="{{ route('detalharUsuarios.show', $usuario->idUsuario) }}" class="btn btn-sm btn-info">Visualizar</a>
               <a href="{{ route('usuarios.edit', $usuario->idUsuario) }}" class="btn btn-sm btn-warning">Editar</a>

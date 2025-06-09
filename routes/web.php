@@ -28,11 +28,11 @@ use App\Http\Controllers\CepController;
 use App\Http\Controllers\Controller;
 use App\Http\Middleware\Authentication;
 
-
+//------------- Depois inserir estas rotas dentro do Route::middleware -------------
 
 // Rotas Cadastro Usuário
 Route::get('/cadastrousuario', [CadastroUsuarioController::class, 'index'])->name('cadastrousuario.index');
-Route::get('/usuario/create', [CadastroUsuarioController::class, 'create'])->name('usuario.create');
+Route::post('/usuario/create', [CadastroUsuarioController::class, 'create'])->name('usuario.create');
 Route::post('/usuario/store', [CadastroUsuarioController::class, 'store'])->name('usuario.store');
 Route::get('/visualizarUsuario', [VisualizarUsuariosHomeController::class, 'index'])->name('visualizarUsuarios.index');
 Route::get('/detalharUsuario/{id}', [VisualizarUsuariosHomeController::class, 'show'])->name('detalharUsuarios.show');
@@ -44,8 +44,10 @@ Route::put('/usuarios/{id}', [VisualizarUsuariosHomeController::class, 'update']
 Route::get('/cadastroAgenda', [CadastroAgendaHomeController::class, 'index'])->name('agendas.index');
 Route::get('/cadastroAgenda/create', [CadastroAgendaHomeController::class, 'create'])->name('agendas.create');
 Route::post('/cadastroAgenda', [CadastroAgendaHomeController::class, 'store'])->name('agendas.store');
+//------------- Depois inserir estas rotas acima dentro do Route::middleware -------------
 
 
+//------Rota de Autenticação fica fora do middleware, pois é a rota de login, que não precisa de autenticação
 //Rotas de autenticação
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'logar'])->name('login.logar');
@@ -85,18 +87,16 @@ Route::middleware('auth.custom')->group(function () {
 });
 
 
-Route::get('/', [HomeSiteController::class, "index"]);
-
-
-// Route::get('/home', [HomeController::class, "index"])->name('admhome');
-
 Route::get('/cadastrousuario', [CadastroHomeController::class, "index"]);
 
 Route::get('/cadastrousuario', [CadastroUsuarioController::class, 'index']);
-Route::get('/cadastrousuario', [CadastroUsuarioController::class, 'create']);
+Route::post('/cadastrousuario', [CadastroUsuarioController::class, 'create']);
 Route::post('/cadastrousuario', [CadastroUsuarioController::class, 'store']);
 
 
+
+//Rotas das páginas do site
+Route::get('/', [HomeSiteController::class, "index"]);
 
 
 Route::get('/experiencias', function () {
@@ -105,9 +105,4 @@ Route::get('/experiencias', function () {
 
 Route::get('/catalogo', function () {
     return view('home.catalogo');
-});
-
-
-Route::get('/teste', function () {
-    return view('especialidades.tricologia');
 });

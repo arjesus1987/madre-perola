@@ -35,17 +35,20 @@ class Usuario extends Authenticatable
 
     public function emails()
     {
-        return $this->hasMany(EmailUsuario::class, 'idUsuario', 'idUsuario');
+        // return $this->hasMany(EmailUsuario::class, 'idUsuario', 'idUsuario');
+        return $this->hasOne(EmailUsuario::class, 'idUsuario', 'idUsuario');
     }
 
     public function telefones()
     {
-        return $this->hasMany(TelefoneUsuario::class, 'idUsuario', 'idUsuario');
+        // return $this->hasMany(TelefoneUsuario::class, 'idUsuario', 'idUsuario');
+        return $this->hasOne(TelefoneUsuario::class, 'idUsuario', 'idUsuario');
     }
 
     public function enderecos()
     {
-        return $this->hasMany(Endereco::class, 'idUsuario', 'idUsuario');
+        // return $this->hasMany(Endereco::class, 'idUsuario', 'idUsuario');
+        return $this->hasOne(Endereco::class, 'idUsuario', 'idUsuario');
     }
 
     public function medico()

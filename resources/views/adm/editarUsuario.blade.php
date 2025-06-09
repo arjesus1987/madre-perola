@@ -1,7 +1,15 @@
 <x-layoutadm>
   <div class="container my-5" id="editar-usuario">
     <h1 class="mb-4">Editar Usuário</h1>
-
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $erro)
+                <li>{{ $erro }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
     <form method="POST" action="{{ route('usuarios.update', $usuario->idUsuario) }}">
       @csrf
       @method('PUT')
@@ -54,11 +62,11 @@
         <div class="row">
           <div class="col-md-6 mb-3">
             <label for="email" class="form-label">E-mail</label>
-            <input type="email" id="email" name="email" class="form-control" value="{{ old('email', $usuario->email) }}" required>
+            <input type="email" id="email" name="email" class="form-control" value="{{ old('email', $usuario->emails->email) }}" required>
           </div>
           <div class="col-md-3 mb-3">
             <label for="telefone" class="form-label">Telefone</label>
-            <input type="text" id="telefone" name="telefone" class="form-control" value="{{ old('telefone', $usuario->telefone) }}">
+            <input type="text" id="telefone" name="telefone" class="form-control" value="{{ old('telefone', $usuario->telefones->telefone) }}">
           </div>
           <div class="col-md-3 mb-3">
             <label for="celular" class="form-label">Celular</label>
@@ -72,31 +80,31 @@
         <div class="row">
           <div class="col-md-3 mb-3">
             <label for="cep" class="form-label">CEP</label>
-            <input type="text" id="cep" name="cep" class="form-control" value="{{ old('cep', $usuario->cep) }}">
+            <input type="text" id="cep" name="cep" class="form-control" value="{{ old('cep', $usuario->enderecos->cep) }}">
           </div>
           <div class="col-md-7 mb-3">
             <label for="logradouro" class="form-label">Logradouro</label>
-            <input type="text" id="logradouro" name="logradouro" class="form-control" value="{{ old('logradouro', $usuario->logradouro) }}">
+            <input type="text" id="logradouro" name="logradouro" class="form-control" value="{{ old('logradouro', $usuario->enderecos->logradouro) }}">
           </div>
           <div class="col-md-2 mb-3">
             <label for="numero" class="form-label">Número</label>
-            <input type="text" id="numero" name="numero" class="form-control" value="{{ old('numero', $usuario->numero) }}">
+            <input type="text" id="numero" name="numero" class="form-control" value="{{ old('numero', $usuario->enderecos->numero) }}">
           </div>
           <div class="col-md-4 mb-3">
             <label for="bairro" class="form-label">Bairro</label>
-            <input type="text" id="bairro" name="bairro" class="form-control" value="{{ old('bairro', $usuario->bairro) }}">
+            <input type="text" id="bairro" name="bairro" class="form-control" value="{{ old('bairro', $usuario->enderecos->bairro) }}">
           </div>
           <div class="col-md-4 mb-3">
             <label for="cidade" class="form-label">Cidade</label>
-            <input type="text" id="cidade" name="cidade" class="form-control" value="{{ old('cidade', $usuario->cidade) }}">
+            <input type="text" id="cidade" name="cidade" class="form-control" value="{{ old('cidade', $usuario->enderecos->cidade) }}">
           </div>
           <div class="col-md-4 mb-3">
             <label for="uf" class="form-label">UF</label>
-            <input type="text" id="uf" name="uf" class="form-control" value="{{ old('uf', $usuario->uf) }}">
+            <input type="text" id="uf" name="uf" class="form-control" value="{{ old('uf', $usuario->enderecos->uf) }}">
           </div>
           <div class="col-md-12 mb-3">
             <label for="complemento" class="form-label">Complemento</label>
-            <input type="text" id="complemento" name="complemento" class="form-control" value="{{ old('complemento', $usuario->complemento) }}">
+            <input type="text" id="complemento" name="complemento" class="form-control" value="{{ old('complemento', $usuario->enderecos->complemento) }}">
           </div>
         </div>
       </fieldset>
