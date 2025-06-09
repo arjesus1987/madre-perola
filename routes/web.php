@@ -27,9 +27,10 @@ use App\Http\Controllers\CadastrarProdutoHomeController;
 use App\Http\Controllers\CepController;
 use App\Http\Controllers\Controller;
 use App\Http\Middleware\Authentication;
+use App\Http\Controllers\MarcarConsultaController;
 
 //------------- Depois inserir estas rotas dentro do Route::middleware -------------
-
+Route::get('/home', [LoginController::class, 'indexHome'])->name('adm.home');
 // Rotas Cadastro Usuário
 Route::get('/cadastrousuario', [CadastroUsuarioController::class, 'index'])->name('cadastrousuario.index');
 Route::post('/usuario/create', [CadastroUsuarioController::class, 'create'])->name('usuario.create');
@@ -41,6 +42,20 @@ Route::put('/usuarios/{id}', [VisualizarUsuariosHomeController::class, 'update']
 
 
 //Rotas Agendas
+Route::get('/cadastroAgenda', [CadastroAgendaHomeController::class, 'index'])->name('agendas.index');
+Route::resource('agendas', CadastroAgendaHomeController::class);
+Route::get('/consulta/publica', [MarcarConsultaController::class, 'agendaPublica'])->name('agenda.publica');
+
+Route::post('/consulta/agendar/{id}', [MarcarConsultaController::class, 'agendar'])->name('consulta.agendar');
+// routes/web.php
+
+
+
+Route::post('/agendar/{id}', [MarcarConsultaController::class, 'agendar'])->name('agendar.consulta');
+
+
+Route::get('/agendaVisualizar', [AgendaVisualizarHomeController::class, 'index'])->name('agenda.visualizar');
+
 Route::get('/cadastroAgenda', [CadastroAgendaHomeController::class, 'index'])->name('agendas.index');
 Route::get('/cadastroAgenda/create', [CadastroAgendaHomeController::class, 'create'])->name('agendas.create');
 Route::post('/cadastroAgenda', [CadastroAgendaHomeController::class, 'store'])->name('agendas.store');
@@ -57,7 +72,7 @@ Route::get('/logout', [LoginController::class, 'destroy'])->name('login.logout')
 // Tem que inserir a importação use App\Http\Middleware\Authentication;
 Route::middleware('auth.custom')->group(function () {
 
-    Route::get('/home', [LoginController::class, 'indexHome'])->name('adm.home');
+    
 
     //Rota ADM Home
 

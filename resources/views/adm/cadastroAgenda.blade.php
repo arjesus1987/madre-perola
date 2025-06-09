@@ -69,14 +69,23 @@
               </select>
             </div>
 
-            <div class="mb-3">
-              <label for="especialidade" class="form-label">Especialidade</label>
-              <select class="form-select" id="especialidade" name="especialidade" required>
-                <option selected disabled>Selecione a especialidade</option>
-                <option value="cardiologia">Cardiologia</option>
-                <option value="dermatologia">Dermatologia</option>
-              </select>
-            </div>
+<!-- Especialidade -->
+    <div class="mb-3">
+        <label for="especialidade_id" class="form-label">Especialidade</label>
+        <select name="especialidade_id" id="especialidade_id" class="form-select" required>
+            <option value="">Selecione a especialidade</option>
+            @foreach($especialidades as $id => $nome)
+                <option value="{{ $id }}" {{ old('especialidade_id') == $id ? 'selected' : '' }}>
+                    {{ $nome }}
+                </option>
+            @endforeach
+        </select>
+    </div>
+
+
+
+</div>
+
 
             <div class="mb-3">
               <label for="tipo_atendimento" class="form-label">Tipo de Atendimento</label>

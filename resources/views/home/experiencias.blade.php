@@ -32,7 +32,7 @@
                     <li><a href="/experiencias">Experiências</a></li>
                     <li><a href="#">Especialidades</a></li>
                     <li><a href="/catalogo">Catálogo</a></li>
-                    <li><a href="#">Agendamento</a></li>
+                    <li><a href="/agenda-publica">Agendamento</a></li>
                 </ul>
             </nav>
         </div>

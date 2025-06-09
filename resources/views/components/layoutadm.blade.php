@@ -77,6 +77,7 @@
             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
               <li><a href="/cadastroAgenda" class="nav-link text-white ps-4">Cadastrar</a></li>
               <li><a href="/agendaVisualizar" class="nav-link text-white ps-4">Visualizar</a></li>
+              <li><a href="/consulta" class="nav-link text-white ps-4">Consulta</a></li>
             </ul>
           </div>
         </li>

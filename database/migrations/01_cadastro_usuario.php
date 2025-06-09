@@ -12,6 +12,8 @@ return new class extends Migration {
     {
         Schema::create('cadastro_usuario', function (Blueprint $table) {
             $table->id('idUsuario');
+                $table->primary('idUsuario');
+
             $table->string('nome');
             $table->string('cpf')->unique();
             $table->string('rg');
