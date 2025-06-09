@@ -28,6 +28,7 @@ use App\Http\Controllers\CepController;
 use App\Http\Controllers\Controller;
 use App\Http\Middleware\Authentication;
 use App\Http\Controllers\MarcarConsultaController;
+use App\Http\Controllers\PacienteConsultaController;
 
 //------------- Depois inserir estas rotas dentro do Route::middleware -------------
 Route::get('/home', [LoginController::class, 'indexHome'])->name('adm.home');
@@ -41,15 +42,21 @@ Route::get('/usuario/{id}/edit', [VisualizarUsuariosHomeController::class, 'edit
 Route::put('/usuarios/{id}', [VisualizarUsuariosHomeController::class, 'update'])->name('usuarios.update');
 
 
+//paciente
+
+Route::get('/consulta/agendar/{agendaId}', [PacienteConsultaController::class, 'criar'])->name('consulta.criar');
+Route::post('/consulta/agendar', [PacienteConsultaController::class, 'agendar'])->name('consulta.agendar');
+
+
 //Rotas Agendas
 Route::get('/cadastroAgenda', [CadastroAgendaHomeController::class, 'index'])->name('agendas.index');
 Route::resource('agendas', CadastroAgendaHomeController::class);
 Route::get('/consulta/publica', [MarcarConsultaController::class, 'agendaPublica'])->name('agenda.publica');
 
 Route::post('/consulta/agendar/{id}', [MarcarConsultaController::class, 'agendar'])->name('consulta.agendar');
-// routes/web.php
 
-
+Route::get('/consulta', [MarcarConsultaController::class, 'index'])->name('consulta.index');
+Route::post('/consulta/agendar/{id}', [MarcarConsultaController::class, 'agendar'])->name('consulta.agendar');
 
 Route::post('/agendar/{id}', [MarcarConsultaController::class, 'agendar'])->name('agendar.consulta');
 

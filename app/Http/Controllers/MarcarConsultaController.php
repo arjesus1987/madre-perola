@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\CadastroAgenda;
 use App\Models\User;
 use App\Models\Especialidade;
+use App\Models\Usuario;
 use Illuminate\Http\Request;
 
 class MarcarConsultaController extends Controller
@@ -27,10 +28,10 @@ class MarcarConsultaController extends Controller
 
         $agendas = $query->orderBy('data')->orderBy('hora_inicio')->get();
 
-        $medicos = User::where('tipo_usuario', 4)->get(); // ajuste conforme seu sistema
+        $medicos = Usuario::where('tipo_usuario', 4)->get(); // ajuste conforme seu sistema
         $especialidades = Especialidade::where('status', 'ativo')->get();
 
-        return view('adm.consultagit', compact('agendas', 'medicos', 'especialidades'));
+        return view('adm.consulta', compact('agendas', 'medicos', 'especialidades'));
     }
 
     public function agendar($id)

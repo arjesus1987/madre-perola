@@ -1,11 +1,9 @@
-@extends('layouts.app')
-
-@section('content')
+<x-layoutadm>
 <div class="container mt-4">
     <h2>Agendar Consulta</h2>
 
     <!-- Filtros -->
-    <form method="GET" action="{{ route('agenda.index') }}" class="row g-3 mb-4">
+    <form method="GET" action="{{ url('/consulta') }}" class="row g-3 mb-4">
         <div class="col-md-3">
             <label for="especialidade" class="form-label">Especialidade</label>
             <select name="especialidade" id="especialidade" class="form-select">
@@ -63,7 +61,7 @@
                 <td>Dr. {{ $agenda->medico->nome }}</td>
                 <td>{{ $agenda->especialidade->nome }}</td>
                 <td>
-                    <form method="POST" action="{{ route('agenda.agendar', $agenda->id) }}">
+                    <form method="POST" action="{{ url('/consulta/agendar/', $agenda->id) }}">
                         @csrf
                         <button type="submit" class="btn btn-success btn-sm">Agendar Consulta</button>
                     </form>
@@ -75,5 +73,5 @@
         </tbody>
     </table>
 </div>
-@endsection
+</x-layoutadm>
 
