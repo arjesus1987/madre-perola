@@ -128,3 +128,7 @@ Route::get('/experiencias', function () {
 Route::get('/catalogo', function () {
     return view('home.catalogo');
 });
+
+Route::get('/novahome', function () {
+    return view('novahome');
+});
